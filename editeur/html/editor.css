@@ -1,0 +1,213 @@
+html,
+body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+	height: 60px;
+}
+#footer {
+	background-color: #f5f5f5;
+}
+
+.container {
+	width: auto;
+	max-width: 820px;
+}
+.container .credit{
+	margin: 20px 0;
+}
+
+/** EDITOR **/
+
+#editor {
+	margin-top: 50px;
+	border: 2px solid #ddd;
+}
+
+#scene {
+	position: relative;
+	width: 816px; /*796+10+10*/
+	height: 304px; /*284+10+10 */
+	background: #ffffff url('assets/3casesIn1-blue-sky-empty.png') no-repeat 0 0;
+	border: 10px solid white;
+	box-sizing: border-box;
+}
+
+.dropper {
+	position: absolute;
+}
+
+.dropper#bubble1 {left: 5px; top: 5px; width: 230px; height: 105px;}
+.dropper#bubble2 {left: 275px; top: 5px; width: 230px; height: 105px;}
+.dropper#bubble3 {left: 550px; top: 5px; width: 230px; height: 105px;}
+
+.dropper#bird1 {left: 5px; top: 130px; width: 90px; height: 110px;}
+.dropper#bird2 {left: 145px; top: 130px; width: 90px; height: 110px;}
+.dropper#bird3 {left: 275px; top: 130px; width: 90px; height: 110px;}
+.dropper#bird4 {left: 415px; top: 130px; width: 90px; height: 110px;}
+.dropper#bird5 {left: 550px; top: 130px; width: 90px; height: 110px;}
+.dropper#bird6 {left: 690px; top: 130px; width: 90px; height: 110px;}
+
+.dropper.no-content{
+	border: 2px solid #ddd;
+	background-color: rgba(50,50,50,0.2);
+	border: 1px solid rgba(50,50,50,0.4);
+	color: #121212;
+	font-size: 9px;
+	padding: 4px;
+}
+.dropper.no-content:hover{
+	background-color: rgba(50,50,50,0.1);
+	border-color: rgba(50,50,50,0.2)
+}
+.dropper.with-content {
+	font-size: 0px;
+}
+.dropper .closeBtn {
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	width: 16px;
+	height: 16px;
+	background: transparent url('assets/icons/cross-white.png') no-repeat 50% 50%;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.dropper .closeBtn:hover {
+	opacity: 1;
+}
+.dropper.no-content .closeBtn {
+	display: none;
+}
+
+.dropper.bird-afraid {background: transparent url('assets/birds/afraid.png') no-repeat 50% 50%;}
+.dropper.bird-afraid-looking-left {background: transparent url('assets/birds/afraid-looking-left.png') no-repeat 50% 50%;}
+.dropper.bird-afraid-looking-right {background: transparent url('assets/birds/afraid-looking-right.png') no-repeat 50% 50%;}
+.dropper.bird-afraid-speaking {background: transparent url('assets/birds/afraid-speaking.png') no-repeat 50% 50%;}
+.dropper.bird-afraid-speaking-looking-left {background: transparent url('assets/birds/afraid-speaking-looking-left.png') no-repeat 50% 50%;}
+.dropper.bird-afraid-speaking-looking-right {background: transparent url('assets/birds/afraid-speaking-looking-right.png') no-repeat 50% 50%;}
+.dropper.bird-amused-looking-left {background: transparent url('assets/birds/amused-looking-left.png') no-repeat 50% 100%;}
+.dropper.bird-amused-looking-right {background: transparent url('assets/birds/amused-looking-right.png') no-repeat 50% 100%;}
+.dropper.bird-bending-speaking-turning-left {background: transparent url('assets/birds/bending-speaking-turning-left.png') no-repeat 0% 50%;}
+.dropper.bird-bending-speaking-turning-right {background: transparent url('assets/birds/bending-speaking-turning-right.png') no-repeat 100% 50%;}
+.dropper.bird-crazy-left {background: transparent url('assets/birds/crazy-left.png') no-repeat 50% 50%;}
+.dropper.bird-crazy-right {background: transparent url('assets/birds/crazy-right.png') no-repeat 50% 50%;}
+.dropper.bird-excusing-left {background: transparent url('assets/birds/excusing-left.png') no-repeat 50% 50%;}
+.dropper.bird-excusing-right {background: transparent url('assets/birds/excusing-right.png') no-repeat 50% 50%;}
+.dropper.bird-flap {background: transparent url('assets/birds/flap.png') no-repeat 50% 50%;}
+.dropper.bird-going-out-left {background: transparent url('assets/birds/going-out-left.png') no-repeat 50% 50%;}
+.dropper.bird-going-out-right {background: transparent url('assets/birds/going-out-right.png') no-repeat 50% 50%;}
+.dropper.bird-laughing-turning-left {background: transparent url('assets/birds/laughing-turning-left.png') no-repeat 50% 50%;}
+.dropper.bird-laughing-turning-right {background: transparent url('assets/birds/laughing-turning-right.png') no-repeat 50% 50%;}
+.dropper.bird-looking-down {background: transparent url('assets/birds/looking-down.png') no-repeat 50% 50%;}
+.dropper.bird-looking-down-turning-left {background: transparent url('assets/birds/looking-down-turning-left.png') no-repeat 50% 50%;}
+.dropper.bird-looking-down-turning-right {background: transparent url('assets/birds/looking-down-turning-right.png') no-repeat 50% 50%;}
+.dropper.bird-looking-left {background: transparent url('assets/birds/looking-left.png') no-repeat 50% 50%;}
+.dropper.bird-looking-right {background: transparent url('assets/birds/looking-right.png') no-repeat 50% 50%;}
+.dropper.bird-looking-sky-turning-left {background: transparent url('assets/birds/looking-sky-turning-left.png') no-repeat 50% 50%;}
+.dropper.bird-looking-sky-turning-right {background: transparent url('assets/birds/looking-sky-turning-right.png') no-repeat 50% 50%;}
+.dropper.bird-narrating-left {background: transparent url('assets/birds/narrating-left.png') no-repeat 50% 50%;}
+.dropper.bird-narrating-right {background: transparent url('assets/birds/narrating-right.png') no-repeat 50% 50%;}
+.dropper.bird-normal {background: transparent url('assets/birds/normal.png') no-repeat 50% 50%;}
+.dropper.bird-pissed {background: transparent url('assets/birds/pissed.png') no-repeat 50% 50%;}
+.dropper.bird-speaking-looking-left {background: transparent url('assets/birds/speaking-looking-left.png') no-repeat 50% 50%;}
+.dropper.bird-speaking-looking-right {background: transparent url('assets/birds/speaking-looking-right.png') no-repeat 50% 50%;}
+.dropper.bird-turning-left {background: transparent url('assets/birds/turning-left.png') no-repeat 50% 50%;}
+.dropper.bird-turning-right {background: transparent url('assets/birds/turning-right.png') no-repeat 50% 50%;}
+.dropper.bird-turning-left-eyes-closed {background: transparent url('assets/birds/turning-left-eyes-closed.png') no-repeat 50% 50%;}
+.dropper.bird-turning-right-eyes-closed {background: transparent url('assets/birds/turning-right-eyes-closed.png') no-repeat 50% 50%;}
+.dropper.bird-whispering-left {background: transparent url('assets/birds/whispering-left.png') no-repeat 50% 50%;}
+.dropper.bird-whispering-right {background: transparent url('assets/birds/whispering-right.png') no-repeat 50% 50%;}
+
+.dropper.bubble-big-left {background: transparent url('assets/bubbles/bubble-big-left.png') no-repeat 50% 50%;}
+.dropper.bubble-big-right {background: transparent url('assets/bubbles/bubble-big-right.png') no-repeat 50% 50%;}
+.dropper.bubble-double-left-right {background: transparent url('assets/bubbles/bubble-double-left-right.png') no-repeat 50% 50%;}
+.dropper.bubble-double-right-left {background: transparent url('assets/bubbles/bubble-double-right-left.png') no-repeat 50% 50%;}
+.dropper.bubble-single-left {background: transparent url('assets/bubbles/bubble-single-left.png') no-repeat 50% 50%;}
+.dropper.bubble-single-right {background: transparent url('assets/bubbles/bubble-single-right.png') no-repeat 50% 50%;}
+.dropper.thought-bubble-left {background: transparent url('assets/bubbles/thought-left.png') no-repeat 50% 50%;}
+.dropper.thought-bubble-right {background: transparent url('assets/bubbles/thought-right.png') no-repeat 50% 50%;}
+
+.bar {
+	position: absolute;
+	top: 0px;
+	width: 10px;
+	height: 284px;
+	background-color: #fff;
+}
+.bar:hover {
+	background-color: red;
+}
+
+.bar.bar1 {left: 255px;}
+.bar.bar2 {left: 525px;}
+
+#library {
+	position: relative;
+	height: 110px;
+	border-top: 2px solid #ddd;
+}
+
+#buckets {
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	bottom: 0px;
+	left: 0px;
+	overflow: hidden;
+}
+.bucket {
+	height: 100%;
+	padding: 5px;
+	overflow-x: scroll;
+	overflow-y: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+.bucket [draggable] {
+	cursor: move;
+}
+.bucket img {
+	height: 80px;
+	margin-right: 20px;
+}
+
+#bucket-switch {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 60px;
+	background-color: #EEEEEE;
+	text-align: center;
+}
+#bucket-switch i {
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	background-position: 50% 50%;
+}
+#bucket-switch i.icon-birds {
+	background-image: url('assets/icons/bird_icon.png');
+}
+#bucket-switch i.icon-bubbles {
+	background-image: url('assets/icons/bubble_icon.png');
+}
+
+div.bird-afraid {
+	background: transparent url('assets/birds/afraid.png') no-repeat 50% 50%;
+}

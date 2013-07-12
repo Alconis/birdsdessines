@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:components="components.*"
+	layout="horizontal"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import mx.graphics.ImageSnapshot;
+			import mx.graphics.codec.PNGEncoder;
+			
+			public function generateFinalImage() : ByteArray {
+				
+				var children : Array = canvas.getChildren();
+				for each (var elt : UIComponent in children){
+					if (elt is Dropper){
+						var dropper : Dropper = elt as Dropper;
+						dropper.styleName = "img";
+						if (!dropper.hasImage()){
+							dropper.removeAllChildren();
+						}
+					}
+				}
+				
+				// Take the snapshot
+				var sceneSnapshot : ImageSnapshot = ImageSnapshot.captureImage(canvas);
+				var imageByteArray:ByteArray = sceneSnapshot.data as ByteArray;
+				
+				for each (elt in children){
+					if (elt is Dropper){
+						dropper = elt as Dropper;
+						dropper.styleName = dropper.hasImage() ? "img" : "";
+					}
+				}
+				
+				return imageByteArray;
+			}
+			
+			public function generateBubblesText() : String {
+				var result : String = "";
+				
+				var children : Array = canvas.getChildren();
+				var bubbleIdx : int = 0;
+				for each (var elt : UIComponent in children){
+					if (elt is Dropper && Dropper(elt).type == Dropper.BUBBLE){
+						bubbleIdx++;
+						result += "Case " + bubbleIdx + ":";
+						result += Dropper(elt).getBubbleText();
+						result += "\n";
+					}
+				}
+				
+				return result;
+			}
+		]]>
+	</mx:Script>
+	<mx:Boolean id="leftSepVisible">true</mx:Boolean>
+	<mx:Boolean id="rightSepVisible">true</mx:Boolean>
+	
+	<mx:Canvas id="canvas">
+		<mx:Image source="assets/3casesIn1-blue-sky-empty.png" width="796" height="284" x="0" y="0"/>
+		
+		<mx:Canvas id="leftSep" height="100%" x="259" width="10"
+				   backgroundColor="#FFFFFF" backgroundAlpha="{leftSepVisible?1:0}"
+				   toolTip="Cliquer la barre pour la cacher ou la montrer"
+				   rollOver="{leftSep.setStyle('backgroundColor',0xE01B32);leftSep.setStyle('backgroundAlpha',1)}"
+				   rollOut="{leftSep.setStyle('backgroundColor',0xFFFFFF);leftSep.setStyle('backgroundAlpha',leftSepVisible?1:0)}"
+				   useHandCursor="true" buttonMode="true"
+				   click="{leftSepVisible = !leftSepVisible}"/>
+		<mx:Canvas id="rightSep" height="100%" x="530" width="10"
+				   backgroundColor="#FFFFFF" backgroundAlpha="{rightSepVisible?1:0}"
+				   toolTip="Cliquer la barre pour la cacher ou la montrer"
+				   rollOver="{rightSep.setStyle('backgroundColor',0xE01B32);rightSep.setStyle('backgroundAlpha',1)}"
+				   rollOut="{rightSep.setStyle('backgroundColor',0xFFFFFF);rightSep.setStyle('backgroundAlpha',rightSepVisible?1:0)}"
+				   useHandCursor="true" buttonMode="true"
+				   click="{rightSepVisible = !rightSepVisible}"/>
+		
+		<components:Dropper   x="3" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		<components:Dropper x="152" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		<components:Dropper x="273" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		<components:Dropper x="422" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		<components:Dropper x="545" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		<components:Dropper x="694" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+		
+		<components:Dropper   x="4" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+		<components:Dropper x="275" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+		<components:Dropper x="545" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+	</mx:Canvas>
+
+
+</mx:Panel>

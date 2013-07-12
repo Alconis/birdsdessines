@@ -1,0 +1,851 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backgrou",
+				"background"
+			],
+			[
+				"backgr",
+				"background"
+			],
+			[
+				"bar",
+				"background"
+			],
+			[
+				"buck",
+				"bucket"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"bucket",
+				"bucket-switch"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"background",
+				"background"
+			],
+			[
+				"login",
+				"login_page"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"logi",
+				"login"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"watch",
+				"watchlist"
+			],
+			[
+				"flas",
+				"flashVarsObj"
+			],
+			[
+				"host",
+				"os.hostname();"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"fot",
+				"font-size"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"area",
+				"areaChart"
+			],
+			[
+				"paddig",
+				"padding-left"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"E",
+				"eeeeee"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"autoRefres",
+				"autoRefreshing"
+			],
+			[
+				"bacg",
+				"background-position"
+			],
+			[
+				"c",
+				"center"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"wat",
+				"watchpoint"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"FONT",
+				"font-weight"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"bl",
+				"inline-block"
+			],
+			[
+				"border-co",
+				"border-left-color"
+			],
+			[
+				"800",
+				"800"
+			],
+			[
+				"n",
+				"nav	Tag"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"lo",
+				"logged"
+			],
+			[
+				"log",
+				"logout"
+			],
+			[
+				"proto",
+				"protocol"
+			],
+			[
+				"User",
+				"User"
+			],
+			[
+				"user",
+				"userShortName"
+			],
+			[
+				"Wat",
+				"Watchers"
+			],
+			[
+				"selec",
+				"selectedWatchpoint"
+			],
+			[
+				"backgroun",
+				"background"
+			],
+			[
+				"get",
+				"getWatchlist"
+			],
+			[
+				"so",
+				"shortName"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"s",
+				"scope"
+			],
+			[
+				"ft",
+				"font-size"
+			],
+			[
+				"launch",
+				"launch-box"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"to",
+				"toFixed"
+			],
+			[
+				"hi",
+				"historicalData"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"ms",
+				"msgData"
+			],
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"ti",
+				"time"
+			],
+			[
+				"time",
+				"timeago"
+			],
+			[
+				"is",
+				"isLogged"
+			],
+			[
+				"padding-",
+				"padding-right"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"backgroundi",
+				"background-image"
+			],
+			[
+				"messages",
+				"messages_grey"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"bacgr",
+				"background"
+			],
+			[
+				"re",
+				"repeat-x"
+			],
+			[
+				"lin",
+				"webkit-linear-gradient"
+			],
+			[
+				"background-",
+				"background-size"
+			],
+			[
+				"watc",
+				"watchers"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"rgb",
+				"rgb()"
+			],
+			[
+				"borde",
+				"border-left"
+			],
+			[
+				"position",
+				"position"
+			],
+			[
+				"pading",
+				"padding-right"
+			],
+			[
+				"fon",
+				"font-variant"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"view",
+				"viewName"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"Fon",
+				"font-size"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 7209,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/editor-controller.js",
+			"settings":
+			{
+				"buffer_size": 1851,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "editor.css",
+			"settings":
+			{
+				"buffer_size": 8733,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Nodejs/Nodejs.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"node",
+				"Nodejs::User File Settings"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/ux/MGR - Risk Insight/html_julien/00 - login page/index.html",
+		"/C/dev/webapps/riskinsight-trunk/index.jsp",
+		"/C/dev/webapps/riskinsight-trunk/partials/apps_part.html",
+		"/C/dev/webapps/riskinsight/index.jsp",
+		"/C/dev/webapps/riskinsight/css/over_bootstrap_theme.css",
+		"/C/dev/webapps/riskinsight/css/smallscreen.css",
+		"/C/dev/webapps/riskinsight/css/riskinsight.css",
+		"/C/dev/webapps/riskinsight/js/routing.js",
+		"/C/dev/webapps/riskinsight-trunk/css/smallscreen.css",
+		"/C/dev/webapps/riskinsight-trunk/css/riskinsight.css",
+		"/C/dev/webapps/riskinsight-trunk/js/routing.js",
+		"/C/dev/webapps/riskinsight-trunk/partials/loginForm_part.html",
+		"/C/dev/webapps/riskinsight/partials/login-page_part.html",
+		"/C/dev/webapps/birds/index.html",
+		"/C/dev/webapps/birds/js/editor-controller.js",
+		"/C/dev/webapps/birds/editor.less",
+		"/C/dev/webapps/birds/editor.css",
+		"/C/dev/webapps/birds/editor.less.css",
+		"/C/dev/webapps/riskinsight/js/controllers/login/login-controller.js",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI04.953/app.js",
+		"/C/dev/webapps/riskinsight/partials/watchlist_part.html",
+		"/C/dev/webapps/riskinsight/partials/watchpoint/watchpoint_radar-part.html",
+		"/C/dev/webapps/riskinsight/test.html",
+		"/C/dev/webapps/riskinsight/partials/loginForm_part.html",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchpoint_radar-controller.js",
+		"/C/dev/webapps/riskinsight/js/services/radar-service.js",
+		"/C/dev/webapps/riskinsight/config.jsp",
+		"/C/dev/webapps/riskinsight/js/directives/charts-directive.js",
+		"/C/dev/webapps/riskinsight/partials/login_part.html",
+		"/C/dev/webapps/riskinsight/lib/ui-bootstrap/ui-bootstrap-0.3.0.js",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI01.219/template.js",
+		"/C/dev/webapps/riskinsight/lib/ui-bootstrap/ui-bootstrap-0.1.0.js",
+		"/C/dev/webapps/riskinsight/template/tooltip/tooltip-popup.html",
+		"/C/dev/webapps/riskinsight/js/directives/avatar-upload_directive.js",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchers/watchers-controller.js",
+		"/C/dev/webapps/riskinsight/js/services/watchpoints-service.js",
+		"/C/dev/webapps/riskinsight/partials/watchpoint/watchpoint_details-part.html",
+		"/C/dev/webapps/riskinsight/postImage.jsp",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchlist-controller.js",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchpoint-controller.js",
+		"/C/Documents and Settings/nicolas.demange/Desktop/radar-chart.js",
+		"/C/dev/webapps/riskinsight/partials/watchpoint/watchpoint_watchers-part.html",
+		"/C/dev/webapps/riskinsight/js/directives/iecharts-directive.js",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchpoint_details-controller.js",
+		"/C/dev/webapps/riskinsight/js/controllers/watchpoints/watchpoint_edit-controller.js",
+		"/C/dev/webapps/riskinsight/partials/watchpoint/watchpoint_edit-part.html",
+		"/C/dev/webapps/riskinsight/js/controllers/apps/apps-controller.js",
+		"/C/dev/webapps/riskinsight/partials/rtm_part.html",
+		"/C/dev/webapps/riskinsight/d.jsp",
+		"/C/dev/webapps/riskinsight/js/controllers/app-controller.js",
+		"/C/dev/webapps/riskinsight/js/controllers/rtm/rtm-controller.js",
+		"/C/dev/webapps/riskinsight/js/services/user-service.js",
+		"/C/dev/webapps/riskinsight/js/directives/rtm-directive.js",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI33.469/d.jsp",
+		"/C/dev/webapps/kgrflex/bv.jsp",
+		"/C/dev/webapps/riskinsight/partials/apps_part.html",
+		"/C/dev/webapps/riskinsight/js/excel.js",
+		"/C/dev/webapps/riskinsight/partials/navigation_part.html",
+		"/C/dev/webapps/riskinsight/header/header.js",
+		"/C/dev/webapps/riskinsight/flex/source/src/iecharts.mxml",
+		"/C/dev/webapps/riskinsight/template/alert/alert.html",
+		"/C/dev/webapps/kgrflex/header/header.html",
+		"/C/dev/webapps/kgrflex/sa.jsp",
+		"/C/dev/webapps/kgrflex/header/header.css",
+		"/C/dev/webapps/riskinsight/css/bootstrap.css",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI73.2031/bv.jsp",
+		"//ptxsvkgr168/kzone-export/home/kgr/dist/gui/webapps/sa.jsp",
+		"/C/DOCUME~1/NICOLA~1.DEM/LOCALS~1/Temp/Rar$DR01.000/flex/bv.jsp",
+		"/C/Documents and Settings/nicolas.demange/Application Data/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/DOCUME~1/NICOLA~1.DEM/LOCALS~1/Temp/Rar$DR01.281/flex/sa.jsp",
+		"/C/DOCUME~1/NICOLA~1.DEM/LOCALS~1/Temp/Rar$DR05.750/flex/sa.jsp",
+		"/C/dev/webapps/kgrflex/header/header.js",
+		"/C/dev/webapps/riskinsight/partials/dashboard_part.html",
+		"/C/dev/webapps/hub/css/riskinsight.css",
+		"/C/dev/webapps/hub/partials/apps_part.html",
+		"/C/dev/webapps/hub/index.jsp",
+		"/C/dev/webapps/hub/partials/watchpoint/watchpoint_comments-part.html",
+		"/C/dev/webapps/hub/partials/watchpoint/watchpoint_details-part.html",
+		"/C/dev/webapps/hub/partials/watchlist_part.html",
+		"/C/dev/webapps/hub/css/over_bootstrap_theme.css",
+		"/C/dev/svn/easy/kgr-war/src/main/webapp/flex/header/header.css",
+		"/C/dev/svn/easy/kgr-war/src/main/webapp/flex/header/header.js",
+		"/C/dev/svn/easy/kgr-war/src/main/webapp/flex/bv.jsp",
+		"/C/dev/svn/easy/kgr-war/src/main/webapp/flex/sa.jsp",
+		"/C/dev/svn/easy/kgr-war/src/main/webapp/flex/header/header.html",
+		"/C/dev/webapps/hub/js/routing.js",
+		"/C/dev/webapps/hub/js/controllers/login/login-controller.js",
+		"/C/dev/webapps/hub/js/directives/iecharts-directive.js",
+		"/C/dev/webapps/hub/js/services/user-service.js",
+		"/C/dev/webapps/hub/partials/login_part.html",
+		"/C/dev/webapps/hub/js/filters/filters.js",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchlist-controller.js",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchpoint-controller.js",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchpoint_details-controller.js",
+		"/C/dev/webapps/hub/js/controllers/app-controller.js",
+		"/C/dev/webapps/hub/partials/navigation_part.html",
+		"/C/dev/webapps/hub/partials/watchpoint/watchpoint_watchers-part.html",
+		"/C/dev/webapps/hub/js/directives/charts-directive.js",
+		"/C/dev/webapps/hub/partials/loginForm_part.html",
+		"/C/dev/webapps/hub/css/bootstrap.css",
+		"/C/dev/webapps/hub/lib/ui-bootstrap/ui-bootstrap-0.1.0.js",
+		"/C/Documents and Settings/nicolas.demange/My Documents/My Received Files/index.html",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI00.531/ng-upload.js",
+		"/C/dev/webapps/hub/js/directives/areaChart-dangle-directive.js",
+		"/C/dev/webapps/hub/partials/dashboard_part.html",
+		"/C/dev/webapps/hub/test.html",
+		"/C/dev/webapps/hub/lib/dangle/dangle.js",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI00.187/d3.v3.js",
+		"/C/dev/webapps/hub/lib/d3/d3.v3.js",
+		"/C/dev/webapps/hub/lib/dangle/dangle.area.js",
+		"/C/dev/webapps/hub/js/directives/d3-directives.js",
+		"/C/DOCUME~1/NICOLA~1.DEM/LOCALS~1/Temp/Rar$DR04.203/dangle-master/css/dangle.css",
+		"/C/dev/webapps/hub/partials/watchpoint/watchpoint_edit-part.html",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchpoint_edit-controller.js",
+		"/C/dev/webapps/hub/partials/test_part.html",
+		"/C/dev/webapps/hub/js/controllers/test-controller.js",
+		"/C/dev/webapps/hub/css/bw.css",
+		"/C/dev/webapps/hub/lib/ui-bootstrap/ui-bootstrap-tpls-0.1.0.js",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchers/watchers-controller.js",
+		"/C/dev/webapps/hub/js/services/watchpoints-service.js",
+		"/C/dev/webapps/hub/js/controllers/apps/apps-controller.js",
+		"/C/Documents and Settings/nicolas.demange/Local Settings/Temp/Rar$DI00.625/sa.jsp",
+		"/C/dev/webapps/hub/js/controllers/watchpoints/watchpoint_comments-controller.js",
+		"/C/dev/webapps/hub/lib/angular/angular.js",
+		"/C/dev/webapps/hub-easy/index.jsp",
+		"/C/dev/webapps/hub/js/tools.js",
+		"/C/dev/webapps/hub/tools.js",
+		"/C/dev/webapps/hub/routing.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"draggable=\"true\" ",
+			"class=\" bird-",
+			"thumb",
+			"column",
+			"tooltip",
+			"chart",
+			"watchers",
+			"radar",
+			"textFilter",
+			"getW",
+			"radius",
+			"opacityArea",
+			"maxValue",
+			"area",
+			"exit",
+			"data",
+			"cfg.maxValue",
+			"getW",
+			"bind",
+			"content",
+			"chart",
+			"histoChartData",
+			"alert",
+			"comment",
+			"location",
+			"<header ng-app=\"riskinsight\" xmlns:ng=\"http://angularjs.org\">\n\n\n<div id=\"breadcrumb\">\n    <div id=\"logo\" class=\"ir\">MGR RISK INSIGHT</div>\n</div>\n</header>",
+			"title",
+			"tooltip",
+			"nav",
+			"body",
+			"content",
+			"tootl",
+			"content",
+			"y0",
+			"filter",
+			"row",
+			"full",
+			"row",
+			"right",
+			"nav",
+			"user_part",
+			"2/",
+			"button",
+			"apps",
+			"negPre",
+			"currencyFilter",
+			"currency",
+			";\n",
+			"image",
+			"ir",
+			"comments",
+			"*/\n",
+			"watchers",
+			"after",
+			"httpBack",
+			"inject",
+			"HttpProvider",
+			"http",
+			"watchers",
+			"time",
+			"title",
+			"loggedPane",
+			",",
+			"_historicalData",
+			"$scope.data",
+			".title",
+			"border-bottom",
+			";\n",
+			"login-link",
+			"changeView"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"class=\"bird-",
+			"",
+			",\\n",
+			",\\r",
+			"_histData",
+			"_data"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 7209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6277,
+								6289
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 840.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "js/editor-controller.js",
+					"settings":
+					{
+						"buffer_size": 1851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1362,
+								1362
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "editor.css",
+					"settings":
+					{
+						"buffer_size": 8733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7569,
+								7569
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 28.0,
+						"translation.y": 1121.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.506510416667,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.git":
+	{
+		"height": 408.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/dev/webapps/riskinsight/riskinsight-easy.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

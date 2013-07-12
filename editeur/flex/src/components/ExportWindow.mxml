@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical" showCloseButton="true" horizontalAlign="center"
+				close="onClose(event)"
+				title="Télécharger, mailer ou publier votre travail..."
+				width="850" height="650" xmlns:components="components.*">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Text;
+			import mx.rpc.events.FaultEvent;
+			import flash.net.navigateToURL;
+			import mx.controls.Alert;
+			import mx.rpc.events.ResultEvent;
+			import mx.utils.Base64Encoder;
+			import mx.controls.Image;
+			import mx.managers.PopUpManager;
+			import mx.events.CloseEvent;
+			
+			private var _returnUrl : String; 
+			
+			[Bindable]
+			private var _bubblesText : String;
+			
+			public function set bubblesText(value : String) : void {
+				_bubblesText = value;
+			}
+			
+			[Bindable]
+			private var _imageData : ByteArray;
+			
+			public function get imageData() : ByteArray {
+				return _imageData;
+			}
+			public function set imageData( data : ByteArray ) : void {
+				_imageData = data;
+				
+				swfLoader.load(_imageData);
+			}
+			
+			private function onClose( event : CloseEvent ) : void {
+				PopUpManager.removePopUp(this);
+			}
+			
+			private function onSaveButtonClick( event : MouseEvent ) : void {
+				saveMsg.visible = false;
+				sendImage();
+			}
+			
+			private function onPicLinkClick( event : MouseEvent ) : void {
+				var urlReq : URLRequest = new URLRequest(_returnUrl);
+				navigateToURL(urlReq);
+			}
+			
+			private function onMailButtonClick( event : MouseEvent ) : void {
+				mailMsg.visible = false;
+				mailImage();
+			}
+			
+			private function sendImage() : void {
+				var be : Base64Encoder = new Base64Encoder();
+				be.encodeBytes(_imageData);
+				var encodedData : String = be.flush();
+				
+				//Object to send to PHP
+				var objSend : Object = new Object;
+				objSend.encodedData = encodedData;
+				
+				//Send data to PHP
+				upload.send( objSend );
+			}
+			
+			private function mailImage() : void {
+				if (mailInput.text == "" || mailInput.text.indexOf("@") == -1){
+					mailMsg.setStyle("color", "red");
+					mailMsg.text = "Invalid mail address !";
+					mailMsg.visible = true;
+					return;
+				}
+				
+				var be : Base64Encoder = new Base64Encoder();
+				be.encodeBytes(_imageData);
+				var encodedData : String = be.flush();
+				
+				//Object to send to PHP
+				var objSend : Object = new Object;
+				objSend.encodedData = encodedData;
+				objSend.mailAddress = mailInput.text;
+				objSend.fromMailAddress = fromMailInput.text;
+				
+				//Send data to PHP
+				mail.send( objSend );
+			}
+			
+			public function onUploadResult( event: ResultEvent ):void {
+				var res:String = event.result.toString();
+				if(res != "ERROR"){
+					_returnUrl = res;
+					picLink.visible = true;
+				}else {
+					Alert.show("Error occured");
+				}
+			}
+			public function onUploadFault( event : FaultEvent) : void {
+				saveMsg.text = "ERROR (" + event.messageId + "): " + event.message;
+				saveMsg.visible = true;
+			}
+			public function onMailResult( event: ResultEvent ):void {
+				var res:String = event.result.toString();
+				if(res != "ERROR"){
+					mailMsg.setStyle("color", "green");
+					mailMsg.text = "Mail envoyé ! Vous pouvez changer les adresses ci-dessus et cliquer à nouveau sur le bouton pour l'envoyer à d'autres personnes."
+					mailMsg.visible = true;
+				}else {
+					Alert.show("Error occured");
+				}
+			}
+			public function onMailFault( event : FaultEvent) : void {
+				mailMsg.setStyle("color", "red");
+				mailMsg.text = "ERROR (" + event.messageId + "): " + event.message;
+				mailMsg.visible = true;
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:HTTPService id="upload" url="http://www.birdsdessines.fr/bd/temp/birds_upload.php"
+					method="POST" showBusyCursor="true"
+					resultFormat="text"
+					result="onUploadResult(event)"
+					fault="onUploadFault(event)"/>
+	
+	
+	<mx:HTTPService id="mail" url="http://www.birdsdessines.fr/birds_mail.php"
+					method="POST" showBusyCursor="true"
+					resultFormat="text"
+					result="onMailResult(event)"
+					fault="onMailFault(event)"/>
+	
+	<mx:SWFLoader id="swfLoader" />
+	<mx:HBox width="100%" horizontalAlign="center" horizontalGap="10">
+		<mx:Button label="Envoyer ma BD par mail" click="{stack.selectedIndex = 1}"
+				   cornerRadius="0" height="40" />
+		<mx:Button label="Télécharger ma BD" click="{stack.selectedIndex = 2}"
+				   cornerRadius="0" height="40" />
+		<mx:Button label="Publier sur le site BirdsDessines.fr" click="{stack.selectedIndex = 3}"
+				   cornerRadius="0" height="40" />
+	</mx:HBox>
+	<mx:ViewStack id="stack" width="100%" height="100%" selectedIndex="0">
+		
+		<mx:VBox width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
+			<mx:Label text="Choisissez ci-dessus comment partager votre BD"
+					  color="#564EF2" fontSize="21"/>
+		</mx:VBox>
+		
+		<mx:VBox width="100%" height="100%" 
+				 cornerRadius="5" borderStyle="solid" borderThickness="4" borderColor="#5CA9DF">
+			<mx:Form>
+				<mx:FormItem label="Adresse mail du destinataire :" width="500">
+					<mx:TextInput id="mailInput" width="100%"/>
+				</mx:FormItem>
+				<mx:FormItem label="Votre adresse mail :" width="500">
+					<mx:TextInput id="fromMailInput" width="100%"/>
+				</mx:FormItem>
+				<mx:Button label="Envoyer ma BD par mail" height="40" click="onMailButtonClick(event)"/>
+				<mx:Label id="mailMsg" visible="false"/>
+			</mx:Form>
+		</mx:VBox>
+		
+		<mx:VBox width="100%" height="100%" horizontalAlign="center" verticalAlign="middle"
+				 cornerRadius="5" borderStyle="solid" borderThickness="4" borderColor="#5CA9DF">
+			<mx:Button label="Générer le lien de téléchargement" height="40"
+					   click="onSaveButtonClick(event)"/>
+			<mx:LinkButton id="picLink" visible="false" click="onPicLinkClick(event)"
+						   label="Cliquez ici pour télécharger !"/>
+			<mx:Label id="saveMsg" visible="false" color="red"/>
+		</mx:VBox>
+		
+		<components:WPPublisher width="100%" height="100%" 
+								cornerRadius="5" borderStyle="solid" borderThickness="4" borderColor="#5CA9DF"
+								imageData="{_imageData}" bubblesText="{_bubblesText}"/>
+	</mx:ViewStack>		
+</mx:TitleWindow>

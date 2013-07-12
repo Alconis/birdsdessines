@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:containers="com.dougmccune.containers.*"
+	layout="vertical" width="900" horizontalAlign="center"
+	backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#FFFFFF, #FFFFFF]"
+	creationComplete="onInit(event)"
+	xmlns:components="components.*">
+	<mx:Style source="assets/styles.css"/>
+	
+	<mx:Script>
+		<![CDATA[
+			import components.ExportWindow;
+			import mx.managers.PopUpManager;
+			import components.Dropper;
+			import components.Diapo;
+			import mx.containers.Panel;
+			import mx.core.ContainerLayout;
+			import mx.core.Container;
+			import mx.controls.Image;
+			
+			private function onInit(event : Event) : void {
+				help.htmlText =
+				/*"- Drag & drop birds to the scene,<br/>"
+				+ "- drag & drop bubbles to the scene,<br/>"
+				+ "- add your texts in the bubbles<br/>"
+				+ "- and click on 'Export...' to get your image.<br/>"
+				+ "- Double click on images to remove them.";*/
+				"- Creez votre compte sur ce site,<br/>"
+				+ "- glissez-deposez vos oiseaux et vos bulles,<br/>"
+				+ "- ajoutez vos textes dans les bulles<br/>"
+				+ "- et cliquez sur 'Exporter...' pour recuperer votre image.<br/>"
+				+ "- Double-cliquez sur les images pour les supprimer.";
+				
+				loadLibrary();
+			}
+			
+			private function loadLibrary() : void {
+				var birdFilesNames : Array = [
+					{p:"going-out-left",t:"Part gch"},
+					{p:"going-out-right",t:"Part dte"},
+					{p:"narrating-left",t:"Chante gch"},
+					{p:"narrating-right",t:"Chante dte"},
+					{p:"excusing-left"},
+					{p:"excusing-right"},
+					{p:"whispering-left"},
+					{p:"whispering-right"},
+					{p:"crazy-left"},
+					{p:"crazy-right"},
+					{p:"looking-down-turning-left"},
+					{p:"looking-down-turning-right"},
+					{p:"turning-right-eyes-closed"},
+					{p:"turning-left-eyes-closed"},
+					{p:"afraid"},
+					{p:"afraid-looking-left"},
+					{p:"afraid-looking-right"},
+					{p:"afraid-speaking"},
+					{p:"afraid-speaking-looking-left"},
+					{p:"afraid-speaking-looking-right"},
+					{p:"amused-looking-left"},
+					{p:"amused-looking-right"},
+					{p:"flap"},
+					{p:"laughing-turning-left"},
+					{p:"laughing-turning-right"},
+					{p:"looking-left"},
+					{p:"looking-right"},
+					{p:"normal"},
+					{p:"pissed"},
+					{p:"pissed-speaking"},
+					{p:"speaking"},
+					{p:"speaking-looking-left"},
+					{p:"speaking-looking-right"},
+					{p:"turning-left"},
+					{p:"turning-right"},
+					{p:"looking-sky-turning-left"},
+					{p:"looking-sky-turning-right"},
+					{p:"looking-down"},
+					{p:"bending-speaking-turning-left"},
+					{p:"bending-speaking-turning-right"}
+				];
+				
+				for each(var file : Object in birdFilesNames){
+					var diapo : Diapo = new Diapo(Dropper.BIRD, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}
+				
+				var bubbleFilesNames : Array = [
+					{p:"thought-bubble-left"},
+					{p:"thought-bubble-right"},
+					{p:"bubble-big-left"},
+					{p:"bubble-big-right"},
+					{p:"bubble-double-right-left"},
+					{p:"bubble-double-left-right"},
+					{p:"bubble-single-right"},
+					{p:"bubble-single-left"}
+				];
+				
+				for each(file in bubbleFilesNames){
+					diapo = new Diapo(Dropper.BUBBLE, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}
+				
+				var bonusFilesNames : Array = [
+					{p:"angry_look_left"},
+					{p:"angry_look_right"},
+					{p:"angry_talk_left"},
+					{p:"angry_talk_right"},
+					{p:"angry_green_face"},
+					{p:"angry_green_talk_face"}
+				];
+			
+				for each(file in bonusFilesNames){
+					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}
+			}
+			
+			private function onExportButtonClick( event : MouseEvent) : void {
+				var exportWindow : ExportWindow = PopUpManager.createPopUp(this,ExportWindow,true) as ExportWindow;
+				exportWindow.imageData = sceneBuilder.generateFinalImage();
+				exportWindow.bubblesText = sceneBuilder.generateBubblesText();
+				PopUpManager.centerPopUp(exportWindow);
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:HBox width="850" verticalAlign="middle">
+		<mx:Text id="help" fontFamily="birdsFont"/>
+		<mx:Spacer width="100%"/>
+		<mx:Button label="Exporter..."
+			click="onExportButtonClick(event)"
+			width="150" height="50"
+			fontSize="20"/>
+	</mx:HBox>
+	<components:SceneBuilder id="sceneBuilder" title="Scene builder"
+		width="820"/>
+	<components:PicChooser id="library" title="Banque de Birds et de bulles"
+		width="820" height="200"/>
+	<mx:Label text="Birds Scene Builder développé par Nicolas Demange. Birds extraits du court-métrage 'For the birds'. Copyright Disney/Pixar."
+		fontFamily="birdsFont"
+		color="#c3c3c3"/>
+</mx:Application>

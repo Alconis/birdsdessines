@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>BirdsDessines.fr > Editeur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet/less" type="text/css" href="editor.less" />
+	<link rel="stylesheet" type="text/css" href="editor.css"  media="screen"/>
+	<script src="js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<div id="wrap">
+		<div class="container">
+			<div id="editor" ng-app="birdseditor" ng-controller="EditorCtrl">
+				<div id="scene">
+					<div id="bubble1" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bubble1')"></div>
+						Mettre une bulle ici
+					</div>
+					<div id="bubble2" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bubble2')"></div>
+						Mettre une bulle ici
+					</div>
+					<div id="bubble3" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bubble3')"></div>
+						Mettre une bulle ici
+					</div>
+
+					<div id="bird1" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird1')"></div>
+						Mettre un bird ici
+					</div>
+					<div id="bird2" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird2')"></div>
+						Mettre un bird ici
+					</div>
+					<div id="bird3" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird3')"></div>
+						Mettre un bird ici
+					</div>
+					<div id="bird4" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird4')"></div>
+						Mettre un bird ici
+					</div>
+					<div id="bird5" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird5')"></div>
+						Mettre un bird ici
+					</div>
+					<div id="bird6" class="dropper no-content">
+						<div class="closeBtn" ng-click="removeContent('bird6')"></div>
+						Mettre un bird ici
+					</div>
+
+					<div class="bar bar1"></div>
+					<div class="bar bar2"></div>
+
+				</div>
+
+				<div id="library">
+					<div id="buckets">
+						<div class="bucket bucket-birds" ng-show="currentBucket == 'birds'">
+							<img class="bird-afraid" src="assets/birds/afraid.png">
+							<img class="bird-afraid-looking-left" src="assets/birds/afraid-looking-left.png">
+							<img class="bird-afraid-looking-right" src="assets/birds/afraid-looking-right.png">
+							<img class="bird-afraid-speaking" src="assets/birds/afraid-speaking.png">
+							<img class="bird-afraid-speaking-looking-left" src="assets/birds/afraid-speaking-looking-left.png">
+							<img class="bird-afraid-speaking-looking-right" src="assets/birds/afraid-speaking-looking-right.png">
+							<img class="bird-amused-looking-left" src="assets/birds/amused-looking-left.png">
+							<img class="bird-amused-looking-right" src="assets/birds/amused-looking-right.png">
+							<img class="bird-bending-speaking-turning-left" src="assets/birds/bending-speaking-turning-left.png">
+							<img class="bird-bending-speaking-turning-right" src="assets/birds/bending-speaking-turning-right.png">
+							<img class="bird-crazy-left" src="assets/birds/crazy-left.png">
+							<img class="bird-crazy-right" src="assets/birds/crazy-right.png">
+							<img class="bird-excusing-left" src="assets/birds/excusing-left.png">
+							<img class="bird-excusing-right" src="assets/birds/excusing-right.png">
+							<img class="bird-flap" src="assets/birds/flap.png">
+							<img class="bird-going-out-left" src="assets/birds/going-out-left.png">
+							<img class="bird-going-out-right" src="assets/birds/going-out-right.png">
+							<img class="bird-laughing-turning-left" src="assets/birds/laughing-turning-left.png">
+							<img class="bird-laughing-turning-right" src="assets/birds/laughing-turning-right.png">
+							<img class="bird-looking-down" src="assets/birds/looking-down.png">
+							<img class="bird-looking-down-turning-left" src="assets/birds/looking-down-turning-left.png">
+							<img class="bird-looking-down-turning-right" src="assets/birds/looking-down-turning-right.png">
+							<img class="bird-looking-left" src="assets/birds/looking-left.png">
+							<img class="bird-looking-right" src="assets/birds/looking-right.png">
+							<img class="bird-looking-sky-turning-left" src="assets/birds/looking-sky-turning-left.png">
+							<img class="bird-looking-sky-turning-right" src="assets/birds/looking-sky-turning-right.png">
+							<img class="bird-narrating-left" src="assets/birds/narrating-left.png">
+							<img class="bird-narrating-right" src="assets/birds/narrating-right.png">
+							<img class="bird-normal" src="assets/birds/normal.png">
+							<img class="bird-pissed" src="assets/birds/pissed.png">
+							<img class="bird-pissed-speaking" src="assets/birds/pissed-speaking.png">
+							<img class="bird-speaking-looking-left" src="assets/birds/speaking-looking-left.png">
+							<img class="bird-speaking-looking-right" src="assets/birds/speaking-looking-right.png">
+							<img class="bird-turning-left" src="assets/birds/turning-left.png">
+							<img class="bird-turning-right" src="assets/birds/turning-right.png">
+							<img class="bird-turning-left-eyes-closed" src="assets/birds/turning-left-eyes-closed.png">
+							<img class="bird-turning-right-eyes-closed" src="assets/birds/turning-right-eyes-closed.png">
+							<img class="bird-whispering-left" src="assets/birds/whispering-left.png">
+							<img class="bird-whispering-right" src="assets/birds/whispering-right.png">
+
+						</div>
+						<div class="bucket bucket-bubbles" ng-show="currentBucket == 'bubbles'">
+							<img class="bubble-big-left" src="assets/bubbles/bubble-big-left.png">
+							<img class="bubble-big-right" src="assets/bubbles/bubble-big-right.png">
+							<img class="bubble-double-left-right" src="assets/bubbles/bubble-double-left-right.png">
+							<img class="bubble-double-right-left" src="assets/bubbles/bubble-double-right-left.png">
+							<img class="bubble-single-left" src="assets/bubbles/bubble-single-left.png">
+							<img class="bubble-single-right" src="assets/bubbles/bubble-single-right.png">
+							<img class="thought-bubble-left" src="assets/bubbles/thought-bubble-left.png">
+							<img class="thought-bubble-right" src="assets/bubbles/thought-bubble-right.png">
+						</div>
+					</div>
+					<div id="bucket-switch">
+						<button class="btn" ng-click="currentBucket = 'birds'"><i class="icon-birds"></i>&nbsp;</button>
+						<button class="btn" ng-click="currentBucket = 'bubbles'"><i class="icon-bubbles"></i>&nbsp;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="push">
+		</div>
+	</div>
+	<div id="footer">
+		<div class="container">
+			<p class="muted credit">
+				HTML5 editor for BirdsDessines.fr using <a href="http://angularjs.org/">Angularjs</a> &amp; <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a>.
+			</p>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.3.0.min.js"></script>
+	<script src="js/editor-controller.js"></script>
+</body>
+</html>
+

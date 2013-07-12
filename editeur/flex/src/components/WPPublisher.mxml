@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.utils.Base64Encoder;
+			
+			public var imageData : ByteArray;
+			public var bubblesText : String;
+			
+			[Bindable]
+			private var _authorID : int;
+			[Bindable]
+			private var _imageURL : String;
+			
+			private function publishPost() : void {
+				var xmlData : XML =
+				<methodCall>
+   					<methodName>metaWeblog.newPost</methodName>
+   					<params>
+      					<param>
+         					<name>blogid</name>
+         					<value><int>0</int></value>
+         				</param>
+      					<param>
+         					<name>username</name>
+         					<value>birdseditor</value>
+         				</param>
+      					<param>
+         					<name>userpass</name>
+         					<value>nay1_jba</value>
+         				</param>
+      					<param>
+         					<name>content_struct</name>
+         					<value>
+         						<struct>
+         							<member>
+         								<name>post_type</name>
+         								<value>post</value>
+         							</member>
+         							<member>
+         								<name>wp_author_id</name>
+         								<value><int>{_authorID}</int></value>
+         							</member>
+         							<member>
+         								<name>title</name>
+         								<value>{postTitle.text}</value>
+         							</member>
+         							<member>
+         								<name>description</name>
+         								<value>{postDescription.text}</value>
+         							</member>
+         							<member>
+         								<!-- pending,draft,publish,private -->
+         								<name>post_status</name>
+         								<value>publish</value>
+         							</member>
+         							<member>
+         								<name>mt_keywords</name>
+         								<value>{postTags.text}</value>
+         							</member>
+         							<member>
+         								<name>categories</name>
+         								<value>
+         									<array>
+         										<data>
+         											<value>{categoryCb.selectedLabel}</value>
+         										</data>
+         									</array>
+										</value>
+         							</member>
+         							<member>
+         								<name>custom_fields</name>
+         								<value>
+	         								<array>
+	         									<data>
+	         										<struct>
+			         									<member>
+			         										<name>key</name>
+			         										<value>large-image</value>
+			         									</member>
+			         									<member>
+			         										<name>value</name>
+			         										<value>{_imageURL}</value>
+														</member>
+													</struct>
+	         										<struct>
+			         									<member>
+			         										<name>key</name>
+			         										<value>bubbles-text</value>
+			         									</member>
+			         									<member>
+			         										<name>value</name>
+			         										<value>{bubblesText}</value>
+														</member>
+													</struct>
+												</data>
+	         								</array>
+         								</value>
+         							</member>
+         						</struct>
+         					</value>
+         				</param>
+      					<param>
+         					<name>publish</name>
+         					<value><boolean>1</boolean></value>
+         				</param>
+      				</params>
+   				</methodCall>;
+				publishRPC.send(xmlData);
+			}
+			
+			private function getUserInfo() : void {
+				var xmlData : XML =
+				<methodCall>
+   					<methodName>blogger.getUserInfo</methodName>
+   					<params>
+      					<param>
+         					<name>blogid</name>
+         					<value><int>0</int></value>
+         				</param>
+      					<param>
+         					<name>username</name>
+         					<value>{username.text}</value>
+         				</param>
+      					<param>
+         					<name>userpass</name>
+         					<value>{userpass.text}</value>
+         				</param>
+      				</params>
+   				</methodCall>;
+				getUserInfoRPC.send(xmlData);
+			}
+			
+			private function sendImage() : void {
+			    var be : Base64Encoder = new Base64Encoder();
+			    be.encodeBytes(imageData);
+			    var encodedData : String = be.flush();
+			    
+			    //Object to send to PHP
+			    var objSend : Object = new Object;
+			    objSend.encodedData = encodedData;
+			    
+			    //Send data to PHP
+			    upload.send( objSend );
+			}
+			
+			private function onPublishButtonClick( event : MouseEvent ) : void {
+				submitButton.enabled = false;
+				submitButton.label = "Patientez...";
+		    	msg.visible = false;
+		    	getUserInfo();
+			}
+			
+		    public function onGetUserInfoResult( event : ResultEvent ) : void {
+		    	var response : XML = event.result as XML;
+		    	
+		    	if ((response[0].fault as XMLList).length() > 0){
+		    		msg.setStyle("color", "red");
+			    	msg.text = (response[0]..member[1].value[0].string[0] as XML).toString();
+			    	msg.visible = true;
+					submitButton.enabled = true;
+					submitButton.label = "Ré essayer de publier";
+		    	}else{
+		    		var userId : String = (response[0]..member[1].value[0].int[0] as XML).toString();
+		    		_authorID = Number(userId);
+		    		sendImage();
+		    	}
+		    }
+		    public function onGetUserInfoFault( event : FaultEvent ) : void {
+		    	msg.setStyle("color", "red");
+		    	msg.text = "Error (" + event.messageId + "): " + event.message;
+		    	msg.visible = true;
+				submitButton.enabled = true;
+				submitButton.label = "3. Publier sur le site Birds-Dessines.fr";
+		    }
+			
+		    public function onUploadResult( event : ResultEvent ) : void {
+		    	var res:String = event.result.toString();
+			    if(res != "ERROR"){
+			    	_imageURL = res;
+			    	publishPost();
+			    }else {
+			    	Alert.show("Error occured while uploading image.");
+					
+					submitButton.enabled = true;
+					submitButton.label = "Ré essayer de publier";
+				}
+		    }
+		    public function onUploadFault( event : FaultEvent ) : void {
+		    	msg.setStyle("color", "red");
+		    	msg.text = "Error (" + event.messageId + "): " + event.message;
+		    	msg.visible = true;
+				
+				submitButton.enabled = true;
+				submitButton.label = "3. Publier sur le site Birds-Dessines.fr";
+		    }
+			
+		    public function onPublishResult( event : ResultEvent ) : void {
+		    	msg.setStyle("color", "green");
+		    	msg.text = "Votre BD a été publiée !"
+		    	msg.visible = true;
+		    	submitButton.visible = false;
+		    	submitButton.includeInLayout = true;
+		    }
+		    public function onPublishFault( event : FaultEvent ) : void {
+		    	msg.setStyle("color", "red");
+		    	msg.text = "Error (" + event.messageId + "): " + event.message;
+		    	msg.visible = true;
+				
+				submitButton.enabled = true;
+				submitButton.label = "3. Publier sur le site Birds-Dessines.fr";
+		    }
+		]]>
+	</mx:Script>
+	
+	
+	<mx:HTTPService id="getUserInfoRPC" url="http://www.birdsdessines.fr/xmlrpc.php"
+		method="POST" showBusyCursor="true"
+		resultFormat="e4x" contentType="application/xml"
+		result="onGetUserInfoResult(event)"
+		fault="onGetUserInfoFault(event)"/>
+	
+	<mx:HTTPService id="upload" url="http://www.birdsdessines.fr/bd/birds_upload.php"
+		method="POST" showBusyCursor="true"
+		resultFormat="text"
+		result="onUploadResult(event)"
+		fault="onUploadFault(event)"/>
+		
+	<mx:HTTPService id="publishRPC" url="http://www.birdsdessines.fr/xmlrpc.php"
+		method="POST" showBusyCursor="true"
+		resultFormat="e4x" contentType="application/xml"
+		result="onPublishResult(event)"
+		fault="onPublishFault(event)"/>
+	
+	
+	<mx:Form width="40%" height="100%">
+		<mx:FormHeading label="1. Identifiez-vous"/>
+  	 	 <mx:FormItem label="Identifiant">
+  	 	 	 <mx:TextInput id="username"/>
+  	 	 </mx:FormItem>
+  	 	 <mx:FormItem label="Mot de passe">
+  	 	 	 <mx:TextInput id="userpass" displayAsPassword="true"/>
+  	 	 </mx:FormItem>
+		
+		<mx:Label id="msg" visible="false" includeInLayout="{msg.visible}"/>
+	</mx:Form>
+	
+	<mx:Form width="60%" height="100%">
+		<mx:FormHeading label="2. Donnez quelques infos sur votre BD"/>
+  	 	 <mx:FormItem label="Titre" width="100%">
+  	 	 	 <mx:TextInput id="postTitle" width="100%"/>
+  	 	 </mx:FormItem>
+  	 	 <mx:FormItem label="Description" width="100%">
+  	 	 	 <mx:TextArea id="postDescription" width="100%"/>
+  	 	 </mx:FormItem>
+  	 	 <mx:FormItem label="Etiquettes" width="100%">
+  	 	 	<mx:VBox width="100%">
+  	 	 		<mx:TextInput id="postTags" width="100%"/>
+  	 	 		<mx:Label text="Max 3, séparées par ','." fontSize="10" fontFamily="Arial" color="#C6C6C6" fontStyle="italic"/>
+  	 	 	</mx:VBox>
+  	 	 </mx:FormItem>
+  	 	 <mx:FormItem label="Catégorie">
+  	 	 	 <mx:ComboBox id="categoryCb">
+  	 	 	 	<mx:dataProvider>
+  	 	 	 		<mx:Array>
+  	 	 	 			<mx:String>Inclassable</mx:String>
+  	 	 	 			<mx:String>Actualité</mx:String>
+  	 	 	 			<mx:String>Amour</mx:String>
+  	 	 	 			<mx:String>Cinéma</mx:String>
+  	 	 	 			<mx:String>Culture</mx:String>
+  	 	 	 			<mx:String>Humour</mx:String>
+  	 	 	 			<mx:String>Musique</mx:String>
+  	 	 	 			<mx:String>People</mx:String>
+  	 	 	 			<mx:String>Politique</mx:String>
+  	 	 	 			<mx:String>Sexe</mx:String>
+  	 	 	 			<mx:String>Sport</mx:String>
+  	 	 	 			<mx:String>Télévision</mx:String>
+  	 	 	 			<mx:String>Travail</mx:String>
+  	 	 	 		</mx:Array>
+  	 	 	 	</mx:dataProvider>
+  	 	 	 </mx:ComboBox>
+  	 	 </mx:FormItem>
+  	 	 <mx:Button id="submitButton" label="3. Publier sur le site Birds-Dessines.fr" height="40"
+  	 	 	click="onPublishButtonClick(event)"/>
+  	 </mx:Form>
+</mx:HBox>

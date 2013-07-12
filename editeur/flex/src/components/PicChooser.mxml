@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
+		  layout="horizontal"
+		  >
+	<mx:Script>
+		<![CDATA[
+			
+			public const BIRDS : String = "birds";
+			public const BUBBLES : String = "bubbles";
+			public const BONUS : String = "bonus";
+			
+			[Bindable]
+			private var _showElement : String = BIRDS;
+			
+			public function addDiapo( diapo : Diapo ) : void {
+				if (diapo.type == Dropper.BIRD){
+					birdsBrowser.addChild(diapo);
+				}else if(diapo.type == Dropper.BUBBLE){
+					bubblesBrowser.addChild(diapo);
+				}else{
+					bonusBrowser.addChild(diapo);
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:HBox id="birdsBrowser" width="750" height="100%"
+			 horizontalScrollPolicy="auto"
+			 verticalAlign="top" horizontalGap="5"
+			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 
+			 visible="{_showElement == BIRDS}"
+			 includeInLayout="{_showElement == BIRDS}"
+			 
+			 />
+	<mx:HBox id="bubblesBrowser" width="750" height="100%"
+			 horizontalScrollPolicy="auto"
+			 verticalAlign="top" horizontalGap="5"
+			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 
+			 visible="{_showElement == BUBBLES}"
+			 includeInLayout="{_showElement == BUBBLES}"
+			 
+			 />
+	<mx:HBox id="bonusBrowser" width="750" height="100%"
+			 horizontalScrollPolicy="auto"
+			 verticalAlign="top" horizontalGap="5"
+			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 
+			 visible="{_showElement == BONUS}"
+			 includeInLayout="{_showElement == BONUS}"
+			 
+			 />
+	<mx:VBox id="toolbar" width="40" height="100%"
+			 verticalAlign="middle" verticalGap="3" horizontalAlign="center">
+		<mx:Button icon="@Embed(source='../assets/icons/bird_icon.png')"
+				   click="_showElement = BIRDS"
+				   toolTip="Afficher les birds"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/bubble_icon2.png')"
+				   click="_showElement = BUBBLES"
+				   toolTip="Afficher les bulles"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/angry_bird_icon.png')"
+				   visible="false" includeInLayout="false"
+				   click="_showElement = BONUS"
+				   toolTip="Afficher les Angry Birds"
+				   height="30" width="30"/>
+	</mx:VBox>
+</mx:Panel>
