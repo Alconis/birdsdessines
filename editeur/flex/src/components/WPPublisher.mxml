@@ -58,10 +58,6 @@
          								<value>publish</value>
          							</member>
          							<member>
-         								<name>mt_keywords</name>
-         								<value>{postTags.text}</value>
-         							</member>
-         							<member>
          								<name>categories</name>
          								<value>
          									<array>
@@ -94,6 +90,16 @@
 			         									<member>
 			         										<name>value</name>
 			         										<value>{bubblesText}</value>
+														</member>
+													</struct>
+	         										<struct>
+			         									<member>
+			         										<name>key</name>
+			         										<value>hidden</value>
+			         									</member>
+			         									<member>
+			         										<name>value</name>
+			         										<value>{hideChB.selected ? 1 : 0}</value>
 														</member>
 													</struct>
 												</data>
@@ -256,12 +262,14 @@
   	 	 <mx:FormItem label="Description" width="100%">
   	 	 	 <mx:TextArea id="postDescription" width="100%"/>
   	 	 </mx:FormItem>
-  	 	 <mx:FormItem label="Etiquettes" width="100%">
-  	 	 	<mx:VBox width="100%">
-  	 	 		<mx:TextInput id="postTags" width="100%"/>
-  	 	 		<mx:Label text="Max 3, séparées par ','." fontSize="10" fontFamily="Arial" color="#C6C6C6" fontStyle="italic"/>
-  	 	 	</mx:VBox>
-  	 	 </mx:FormItem>
+  	 	 <mx:HBox>
+		 <mx:VBox width="100%">
+			 <mx:HBox width="100%" paddingLeft="42">
+				 <mx:Image source="assets/icons/eye-close.png"/>
+				 <mx:CheckBox id="hideChB" label="Ne pas mettre ma BD devant tous les yeux. (Bandeau rouge)" width="100%"/>
+			 </mx:HBox>
+		 </mx:VBox>
+		 </mx:HBox>
   	 	 <mx:FormItem label="Catégorie">
   	 	 	 <mx:ComboBox id="categoryCb">
   	 	 	 	<mx:dataProvider>
