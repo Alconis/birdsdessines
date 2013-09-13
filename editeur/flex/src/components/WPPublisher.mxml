@@ -30,7 +30,7 @@
          				</param>
       					<param>
          					<name>userpass</name>
-         					<value>xxxx</value>
+         					<value>xxx</value>
          				</param>
       					<param>
          					<name>content_struct</name>
@@ -92,7 +92,7 @@
 			         										<value>{bubblesText}</value>
 														</member>
 													</struct>
-	         										<struct>
+													<struct>
 			         									<member>
 			         										<name>key</name>
 			         										<value>hidden</value>
@@ -100,6 +100,16 @@
 			         									<member>
 			         										<name>value</name>
 			         										<value>{hideChB.selected ? 1 : 0}</value>
+														</member>
+													</struct>
+													<struct>
+			         									<member>
+			         										<name>key</name>
+			         										<value>certified</value>
+			         									</member>
+			         									<member>
+			         										<name>value</name>
+			         										<value>{certifiedChB.selected ? 1 : 0}</value>
 														</member>
 													</struct>
 												</data>
@@ -256,42 +266,51 @@
 	
 	<mx:Form width="60%" height="100%">
 		<mx:FormHeading label="2. Donnez quelques infos sur votre BD"/>
-  	 	 <mx:FormItem label="Titre" width="100%">
+  	 	 <mx:FormItem label="Titre" width="100%" required="true">
   	 	 	 <mx:TextInput id="postTitle" width="100%"/>
   	 	 </mx:FormItem>
   	 	 <mx:FormItem label="Description" width="100%">
   	 	 	 <mx:TextArea id="postDescription" width="100%"/>
   	 	 </mx:FormItem>
-  	 	 <mx:HBox>
-		 <mx:VBox width="100%">
-			 <mx:HBox width="100%" paddingLeft="42">
-				 <mx:Image source="assets/icons/eye-close.png"/>
-				 <mx:CheckBox id="hideChB" label="Ne pas mettre ma BD devant tous les yeux. (Bandeau rouge)" width="100%"/>
+		 <mx:HBox width="100%" paddingLeft="42">
+			 <mx:HBox width="50%">
+				 <mx:Image source="assets/icons/eye-close.png"
+						   toolTip="Cochez cette case si le contenu de votre BD ne doit pas être devant tous les yeux. Elle sera accessible derrière un bandeau préventif."/>
+				 <mx:CheckBox id="hideChB" label="Contenu sensible" width="100%"
+							  toolTip="Cochez cette case si le contenu de votre BD ne doit pas être devant tous les yeux. Elle sera accessible derrière un bandeau préventif."/>
 			 </mx:HBox>
-		 </mx:VBox>
+			 <mx:HBox width="50%">
+				 <mx:Image source="assets/icons/certified.png"
+						   toolTip="Cochez cette case si vous êtes l'auteur du contenu de la BD et qu'il n'a jamais été publié (après vérification en utilisant la recherche)."/>
+				 <mx:CheckBox id="certifiedChB" label="BD/Blague inédite" width="100%"
+							  toolTip="Cochez cette case si vous êtes l'auteur du contenu de la BD et qu'il n'a jamais été publié (après vérification en utilisant la recherche)."/>
+			 </mx:HBox>
 		 </mx:HBox>
-  	 	 <mx:FormItem label="Catégorie">
-  	 	 	 <mx:ComboBox id="categoryCb">
-  	 	 	 	<mx:dataProvider>
-  	 	 	 		<mx:Array>
-  	 	 	 			<mx:String>Inclassable</mx:String>
-  	 	 	 			<mx:String>Actualité</mx:String>
-  	 	 	 			<mx:String>Amour</mx:String>
-  	 	 	 			<mx:String>Cinéma</mx:String>
-  	 	 	 			<mx:String>Culture</mx:String>
-  	 	 	 			<mx:String>Humour</mx:String>
-  	 	 	 			<mx:String>Musique</mx:String>
-  	 	 	 			<mx:String>People</mx:String>
-  	 	 	 			<mx:String>Politique</mx:String>
-  	 	 	 			<mx:String>Sexe</mx:String>
-  	 	 	 			<mx:String>Sport</mx:String>
-  	 	 	 			<mx:String>Télévision</mx:String>
-  	 	 	 			<mx:String>Travail</mx:String>
-  	 	 	 		</mx:Array>
-  	 	 	 	</mx:dataProvider>
-  	 	 	 </mx:ComboBox>
-  	 	 </mx:FormItem>
-  	 	 <mx:Button id="submitButton" label="3. Publier sur le site Birds-Dessines.fr" height="40"
-  	 	 	click="onPublishButtonClick(event)"/>
+		<mx:FormItem label="Catégorie">
+			<mx:ComboBox id="categoryCb">
+				<mx:dataProvider>
+					<mx:Array>
+						<mx:String>Inclassable</mx:String>
+						<mx:String>Actualité</mx:String>
+						<mx:String>Amour</mx:String>
+						<mx:String>Cinéma</mx:String>
+						<mx:String>Culture</mx:String>
+						<mx:String>Humour</mx:String>
+						<mx:String>Musique</mx:String>
+						<mx:String>People</mx:String>
+						<mx:String>Politique</mx:String>
+						<mx:String>Sexe</mx:String>
+						<mx:String>Sport</mx:String>
+						<mx:String>Télévision</mx:String>
+						<mx:String>Travail</mx:String>
+					</mx:Array>
+				</mx:dataProvider>
+			</mx:ComboBox>
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:Button id="submitButton" label="3. Publier sur BirdsDessines.fr" height="40"
+								click="onPublishButtonClick(event)" enabled="{postTitle.text != ''}"/>
+		</mx:FormItem>
+  	 	 
   	 </mx:Form>
 </mx:HBox>
