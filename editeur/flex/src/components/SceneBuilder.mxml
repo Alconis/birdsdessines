@@ -77,14 +77,14 @@
 				horizontalAlign="left"
 				horizontalGap="6"
 				verticalAlign="middle">
-			<mx:Button icon="@Embed(source='../assets/icons/blue-sky_icon.png')"
+			<!--mx:Button icon="@Embed(source='../assets/icons/blue-sky_icon.png')"
 					   click="bg.source='assets/back_blue-sky.png'"
 					   toolTip="Utiliser le fond bleu ciel"
 					   height="30" width="30"/>
 			<mx:Button icon="@Embed(source='../assets/icons/rain_icon.png')"
 					   click="bg.source='assets/back-rain.png'"
 					   toolTip="Utiliser le fond pluvieux"
-					   height="30" width="30"/>
+					   height="30" width="30"/-->
 			<mx:Spacer width="100%"/>
 			<mx:Button label="Exporter..."
 					   click="onExportButtonClick(event)"/>

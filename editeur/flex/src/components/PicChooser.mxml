@@ -93,10 +93,10 @@
 				   click="_showElement = BONUS"
 				   toolTip="Afficher les Birds Bonus"
 				   height="30" width="30"/>
-		<mx:Button icon="@Embed(source='../assets/icons/chouette_icon.png')"
+		<!--mx:Button icon="@Embed(source='../assets/icons/chouette_icon.png')"
 				   click="_showElement = NEW_CHOUETTE"
 				   toolTip="Afficher les Chouettes"
-				   height="30" width="30"/>
+				   height="30" width="30"/-->
 		<mx:Button icon="@Embed(source='../assets/icons/bubble_icon2.png')"
 				   click="_showElement = BUBBLES"
 				   toolTip="Afficher les bulles"

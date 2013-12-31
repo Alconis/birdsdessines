@@ -142,7 +142,7 @@
 		<mx:Button label="Télécharger ma BD" click="{stack.selectedIndex = 2}"
 				   cornerRadius="0" height="40" />
 		<mx:Button label="Publier sur le site BirdsDessines.fr" click="{stack.selectedIndex = 3}"
-				   cornerRadius="0" height="40" enabled="false" toolTip="Desactive pour laisser la surprise."/>
+				   cornerRadius="0" height="40" />
 	</mx:HBox>
 	<mx:ViewStack id="stack" width="100%" height="100%" selectedIndex="0">
 		
