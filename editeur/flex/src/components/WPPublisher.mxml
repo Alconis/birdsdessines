@@ -30,7 +30,7 @@
          				</param>
       					<param>
          					<name>userpass</name>
-         					<value>xxx</value>
+         					<value>nay1_jba</value>
          				</param>
       					<param>
          					<name>content_struct</name>
@@ -239,7 +239,7 @@
 		result="onGetUserInfoResult(event)"
 		fault="onGetUserInfoFault(event)"/>
 	
-	<mx:HTTPService id="upload" url="http://www.birdsdessines.fr/bd/birds_upload.php"
+	<mx:HTTPService id="upload" url="http://www.birdsdessines.fr/birds_upload.php"
 		method="POST" showBusyCursor="true"
 		resultFormat="text"
 		result="onUploadResult(event)"

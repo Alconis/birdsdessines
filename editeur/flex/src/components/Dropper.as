@@ -2,7 +2,6 @@ package components
 {
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
-	import flash.events.TextEvent;
 	import flash.geom.Point;
 	
 	import mx.containers.Canvas;
@@ -10,7 +9,6 @@ package components
 	import mx.controls.Label;
 	import mx.controls.TextArea;
 	import mx.core.ScrollPolicy;
-	import mx.core.UIComponent;
 	import mx.events.DragEvent;
 	import mx.managers.DragManager;
 
@@ -25,6 +23,8 @@ package components
 		
 		public static const BIRD : String = "bird";
 		public static const BUBBLE : String = "bubble";
+		public static const NEW_BIRDS : String = "new_birds";
+		public static const NEW_CHOUETTE : String = "new_chouette";
 		public static const BONUS : String = "bonus";
 		
 		public static const EMPTY_BUBBLE_TXT : String = "Cliquer pour éditer le texte.";
@@ -144,7 +144,7 @@ package components
 		private function onDragOver( event : DragEvent ) : void {
 			var sourceType : String = event.dragSource.dataForFormat("type") as String;
 			
-			if ((_type == BIRD && (sourceType == BIRD || sourceType == BONUS))
+			if ((_type == BIRD && (sourceType == BIRD || sourceType == NEW_BIRDS || sourceType == NEW_CHOUETTE || sourceType == BONUS))
 			 || (_type == BUBBLE && sourceType == BUBBLE)){
 				DragManager.showFeedback(DragManager.MOVE);
 			}else{
@@ -161,8 +161,12 @@ package components
 			
 			if (Dropper.BIRD == sourceType){
 				correctBirdPosition(sourceId);
-   			}else if (Dropper.BONUS == sourceType){
+			}else if (Dropper.NEW_BIRDS == sourceType){
+				correctNewBirdsPosition(sourceId);
+			}else if (Dropper.BONUS == sourceType){
 				correctBonusPosition(sourceId);
+			}else if (Dropper.NEW_CHOUETTE == sourceType){
+				correctNewChouettePosition(sourceId);
 			}else if (Dropper.BUBBLE == sourceType){
 	        	addBubbleTextEditors(sourceId);
    			}
@@ -228,17 +232,52 @@ package components
 				}
 			}
 		}
-		
-		private function correctBonusPosition( birdTitle : String ) : void {
+				
+		private function correctNewBirdsPosition( birdTitle : String ) : void {
 			
-			_img.y -= 10;
+			_img.x += -10;
+			_img.y += -27;
+
 			switch (birdTitle){
-				case "test" : {
-					_img.x += 0;
-					_img.y += 0;
+				case "Birds_whispering-left" : {
+					_img.y += 10;
+					break;
+				}
+				case "Birds_whispering-right" : {
+					_img.y += 10;
+					break;
+				}
+				case "Birds_laughing-turning-left" : {
+					_img.y += 7;
+					break;
+				}
+				case "Birds_laughing-turning-right" : {
+					_img.y += 7;
+					break;
+				}
+				case "Birds_laughing-turning-right" : {
+					_img.y += 7;
+					break;
+				}
+				case "Birds_flap-left" : {
+					_img.x += 8;
+					break;
+				}
+				case "Birds_flap-right" : {
+					_img.x += 8;
 					break;
 				}
 			}
+		}
+		
+		private function correctNewChouettePosition( birdTitle : String ) : void {
+			_img.x -= 5;
+			_img.y += -27;
+		}
+		
+		private function correctBonusPosition( birdTitle : String ) : void {
+			_img.x += -10;
+			_img.y += -27;
 		}
 		
 		private function onBubbleTextAreaClick( event : MouseEvent ) : void {
@@ -277,6 +316,15 @@ package components
 					editor1.x = 20;
 					editor1.y = 10;
 					editor1.width = 205;
+					editor1.height = 100;
+					editor1.maxLineCount = 4;
+					addChild(editor1);
+					break;
+				}
+				case "bubble-no-speak" : {
+					editor1.x = 25;
+					editor1.y = 15;
+					editor1.width = 200;
 					editor1.height = 100;
 					editor1.maxLineCount = 4;
 					addChild(editor1);

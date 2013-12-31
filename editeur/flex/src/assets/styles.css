@@ -8,7 +8,7 @@
 Label.help
 {
 	font-size: 9;
-	color: #747474;
+	color: #efefef;
 }
 
 Label.new
@@ -26,38 +26,15 @@ TextArea.bubble
 	background-alpha: 0.0;
 }
 
-Diapo.diapoBird
+Diapo
 {
-	cornerRadius: 0;
-	borderThicknessLeft: 2;
-	borderThicknessRight: 2;
-	borderThicknessBottom: 2;
-	roundedBottomCorners: false;
-	borderAlpha: 1.0;
-	borderColor: #E9E4FF;
 	backgroundColor: #FFFFFF;
-	backgroundAlpha: 1;
-	color: #787878;
-	fontSize: 8;
-	horizontal-align: center;
-	vertical-align: middle;
-}
-
-Diapo.diapoBubble
-{
-	cornerRadius: 0;
-	borderThicknessLeft: 2;
-	borderThicknessRight: 2;
-	borderThicknessBottom: 2;
-	roundedBottomCorners: false;
-	borderAlpha: 1.0;
-	borderColor: #FAFBA3;
-	backgroundColor: #FFFFFF;
-	backgroundAlpha: 1;
-	color: #787878;
-	fontSize: 8;
-	horizontal-align: center;
-	vertical-align: middle;
+	borderStyle: solid;
+	borderColor: #DFDFDF;
+	borderThickness: 1;
+	cornerRadius: 2;
+	horizontalAlign: center;
+	verticalAlign: middle;
 }
 
 Dropper

@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
-		  layout="horizontal"
-		  >
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 backgroundColor="#ffffff"
+		 borderColor="#cdcdcd"
+		 borderStyle="solid"
+		 horizontalAlign="center"
+		 paddingBottom="8"
+		 paddingTop="8"
+		 paddingLeft="8">
 	<mx:Script>
 		<![CDATA[
 			
 			public const BIRDS : String = "birds";
 			public const BUBBLES : String = "bubbles";
+			public const NEW_BIRDS : String = "new_birds";
+			public const NEW_CHOUETTE : String = "new_chouette";
 			public const BONUS : String = "bonus";
 			
 			[Bindable]
-			private var _showElement : String = BIRDS;
+			private var _showElement : String = NEW_BIRDS;
 			
 			public function addDiapo( diapo : Diapo ) : void {
 				if (diapo.type == Dropper.BIRD){
-					birdsBrowser.addChild(diapo);
+					//birdsBrowser.addChild(diapo);
 				}else if(diapo.type == Dropper.BUBBLE){
 					bubblesBrowser.addChild(diapo);
-				}else{
+				}else if(diapo.type == Dropper.NEW_BIRDS){
+					newBirdsBrowser.addChild(diapo);
+				}else if(diapo.type == Dropper.NEW_CHOUETTE){
+					newChouetteBrowser.addChild(diapo);
+				}else if(diapo.type == Dropper.BONUS){
 					bonusBrowser.addChild(diapo);
 				}
 			}
 		]]>
 	</mx:Script>
-	<mx:HBox id="birdsBrowser" width="750" height="100%"
+	<!--mx:HBox id="birdsBrowser" width="750" height="100%"
 			 horizontalScrollPolicy="auto"
 			 verticalAlign="top" horizontalGap="5"
 			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
@@ -31,7 +42,7 @@
 			 visible="{_showElement == BIRDS}"
 			 includeInLayout="{_showElement == BIRDS}"
 			 
-			 />
+			 /-->
 	<mx:HBox id="bubblesBrowser" width="750" height="100%"
 			 horizontalScrollPolicy="auto"
 			 verticalAlign="top" horizontalGap="5"
@@ -39,6 +50,24 @@
 			 
 			 visible="{_showElement == BUBBLES}"
 			 includeInLayout="{_showElement == BUBBLES}"
+			 
+			 />
+	<mx:HBox id="newBirdsBrowser" width="750" height="100%"
+			 horizontalScrollPolicy="auto"
+			 verticalAlign="top" horizontalGap="5"
+			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 
+			 visible="{_showElement == NEW_BIRDS}"
+			 includeInLayout="{_showElement == NEW_BIRDS}"
+			 
+			 />
+	<mx:HBox id="newChouetteBrowser" width="750" height="100%"
+			 horizontalScrollPolicy="auto"
+			 verticalAlign="top" horizontalGap="5"
+			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 
+			 visible="{_showElement == NEW_CHOUETTE}"
+			 includeInLayout="{_showElement == NEW_CHOUETTE}"
 			 
 			 />
 	<mx:HBox id="bonusBrowser" width="750" height="100%"
@@ -51,19 +80,26 @@
 			 
 			 />
 	<mx:VBox id="toolbar" width="40" height="100%"
-			 verticalAlign="middle" verticalGap="3" horizontalAlign="center">
-		<mx:Button icon="@Embed(source='../assets/icons/bird_icon.png')"
+			 verticalAlign="middle" verticalGap="6" horizontalAlign="center">
+		<!--mx:Button icon="@Embed(source='../assets/icons/bird_icon.png')"
 				   click="_showElement = BIRDS"
 				   toolTip="Afficher les birds"
+				   height="30" width="30"/-->
+		<mx:Button icon="@Embed(source='../assets/icons/new_bird_icon.png')"
+				   click="_showElement = NEW_BIRDS"
+				   toolTip="Afficher les Nouveaux Birds"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/newspaper_icon.png')"
+				   click="_showElement = BONUS"
+				   toolTip="Afficher les Birds Bonus"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/chouette_icon.png')"
+				   click="_showElement = NEW_CHOUETTE"
+				   toolTip="Afficher les Chouettes"
 				   height="30" width="30"/>
 		<mx:Button icon="@Embed(source='../assets/icons/bubble_icon2.png')"
 				   click="_showElement = BUBBLES"
 				   toolTip="Afficher les bulles"
 				   height="30" width="30"/>
-		<mx:Button icon="@Embed(source='../assets/icons/angry_bird_icon.png')"
-				   visible="false" includeInLayout="false"
-				   click="_showElement = BONUS"
-				   toolTip="Afficher les Angry Birds"
-				   height="30" width="30"/>
 	</mx:VBox>
-</mx:Panel>
+</mx:HBox>

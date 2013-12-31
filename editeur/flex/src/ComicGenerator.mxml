@@ -1,35 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:containers="com.dougmccune.containers.*"
-	layout="vertical" width="900" horizontalAlign="center"
-	backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#FFFFFF, #FFFFFF]"
-	creationComplete="onInit(event)"
-	xmlns:components="components.*">
+				xmlns:components="components.*"
+				width="900" 
+				layout="vertical" horizontalAlign="center"
+				backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#FFFFFF, #FFFFFF]"
+				creationComplete="onInit(event)">
 	<mx:Style source="assets/styles.css"/>
 	
 	<mx:Script>
 		<![CDATA[
-			import components.ExportWindow;
-			import mx.managers.PopUpManager;
-			import components.Dropper;
 			import components.Diapo;
-			import mx.containers.Panel;
-			import mx.core.ContainerLayout;
-			import mx.core.Container;
-			import mx.controls.Image;
+			import components.Dropper;
 			
 			private function onInit(event : Event) : void {
-				help.htmlText =
-				/*"- Drag & drop birds to the scene,<br/>"
-				+ "- drag & drop bubbles to the scene,<br/>"
-				+ "- add your texts in the bubbles<br/>"
-				+ "- and click on 'Export...' to get your image.<br/>"
-				+ "- Double click on images to remove them.";*/
-				"- Creez votre compte sur ce site,<br/>"
-				+ "- glissez-deposez vos oiseaux et vos bulles,<br/>"
-				+ "- ajoutez vos textes dans les bulles<br/>"
-				+ "- et cliquez sur 'Exporter...' pour recuperer votre image.<br/>"
-				+ "- Double-cliquez sur les images pour les supprimer.";
 				
 				loadLibrary();
 			}
@@ -91,7 +74,8 @@
 					{p:"bubble-double-right-left"},
 					{p:"bubble-double-left-right"},
 					{p:"bubble-single-right"},
-					{p:"bubble-single-left"}
+					{p:"bubble-single-left"},
+					{p:"bubble-no-speak"}
 				];
 				
 				for each(file in bubbleFilesNames){
@@ -99,43 +83,97 @@
 					library.addDiapo(diapo);
 				}
 				
-				var bonusFilesNames : Array = [
-					{p:"angry_look_left"},
-					{p:"angry_look_right"},
-					{p:"angry_talk_left"},
-					{p:"angry_talk_right"},
-					{p:"angry_green_face"},
-					{p:"angry_green_talk_face"}
+				var newBirdsFilesNames : Array = [
+					{p:"Birds_Afraid-looking-left"},
+					{p:"Birds_Afraid-looking-right"},
+					{p:"Birds_Afraid-speaking-looking-left"},
+					{p:"Birds_Afraid-speaking-looking-right"},
+					{p:"Birds_Afraid-speaking"},
+					{p:"Birds_Afraid"},
+					{p:"Birds_Amused-looking-left"},
+					{p:"Birds_Amused-looking-right"},
+					{p:"Birds_bending-speaking-left"},
+					{p:"Birds_bending-speaking-right"},
+					{p:"Birds_blind-turning-left"},
+					{p:"Birds_blind-turning-right"},
+					{p:"Birds_chante-left"},
+					{p:"Birds_chante-right"},
+					{p:"Birds_crazy"},
+					{p:"Birds_excusing-left"},
+					{p:"Birds_excusing-right"},
+					{p:"Birds_flap-left"},
+					{p:"Birds_flap-right"},
+					{p:"Birds_go-left"},
+					{p:"Birds_go-right"},
+					{p:"Birds_hautain-speaking"},
+					{p:"Birds_hautain"},
+					{p:"Birds_laughing-turning-left"},
+					{p:"Birds_laughing-turning-right"},
+					{p:"Birds_looking-down-left"},
+					{p:"Birds_looking-down-right"},
+					{p:"Birds_looking-down"},
+					{p:"Birds_looking-left"},
+					{p:"Birds_looking-right"},
+					{p:"Birds_looking-sky-left"},
+					{p:"Birds_looking-sky-right"},
+					{p:"Birds_normal"},
+					{p:"Birds_pissed-speaking"},
+					{p:"Birds_pissed"},
+					{p:"Birds_speaking-looking-left"},
+					{p:"Birds_speaking-looking-right"},
+					{p:"Birds_speaking"},
+					{p:"Birds_turning-left"},
+					{p:"Birds_turning-right"},
+					{p:"Birds_whispering-left"},
+					{p:"Birds_whispering-right"}
 				];
-			
-				for each(file in bonusFilesNames){
+				
+				for each(file in newBirdsFilesNames){
+					diapo = new Diapo(Dropper.NEW_BIRDS, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}
+				
+				var newChouetteFilesNames : Array = [
+					{p:"Chouette_afraid-looking-left"},
+					{p:"Chouette_afraid-looking-right"},
+					{p:"Chouette_afraid-speaking"},
+					{p:"Chouette_normal-looking-left"},
+					{p:"Chouette_normal-looking-right"},
+					{p:"Chouette_normal"},
+					{p:"Chouette_pissed-speaking"},
+					{p:"Chouette_pissed"},
+					{p:"Chouette_speaking-looking-left"},
+					{p:"Chouette_speaking-looking-right"},
+					{p:"Chouette_speaking"}
+				];
+				
+				for each(file in newChouetteFilesNames){
+					diapo = new Diapo(Dropper.NEW_CHOUETTE, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}
+				
+				var newspaperBirdsFilesNames : Array = [
+					{p:"Birds_newspaper"},
+					{p:"Birds_newspaper-normal"},
+					{p:"Birds_newspaper-afraid"},
+					{p:"Birds_newspaper-normal-left"},
+					{p:"Birds_newspaper-normal-right"},
+					{p:"Birds_newspaper-speaking-looking-left"},
+					{p:"Birds_newspaper-speaking-looking-right"},
+					{p:"Birds_newspaper-pissed"}
+				];
+				
+				for each(file in newspaperBirdsFilesNames){
 					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
 				}
-			}
-			
-			private function onExportButtonClick( event : MouseEvent) : void {
-				var exportWindow : ExportWindow = PopUpManager.createPopUp(this,ExportWindow,true) as ExportWindow;
-				exportWindow.imageData = sceneBuilder.generateFinalImage();
-				exportWindow.bubblesText = sceneBuilder.generateBubblesText();
-				PopUpManager.centerPopUp(exportWindow);
+				
 			}
 			
 		]]>
 	</mx:Script>
-	<mx:HBox width="850" verticalAlign="middle">
-		<mx:Text id="help" fontFamily="birdsFont"/>
-		<mx:Spacer width="100%"/>
-		<mx:Button label="Exporter..."
-			click="onExportButtonClick(event)"
-			width="150" height="50"
-			fontSize="20"/>
-	</mx:HBox>
-	<components:SceneBuilder id="sceneBuilder" title="Scene builder"
+	<components:SceneBuilder id="sceneBuilder"
 		width="820"/>
-	<components:PicChooser id="library" title="Banque de Birds et de bulles"
-		width="820" height="200"/>
-	<mx:Label text="Birds Scene Builder développé par Nicolas Demange. Birds extraits du court-métrage 'For the birds'. Copyright Disney/Pixar."
-		fontFamily="birdsFont"
-		color="#c3c3c3"/>
+	<components:PicChooser id="library"
+		width="820" height="180"/>
 </mx:Application>

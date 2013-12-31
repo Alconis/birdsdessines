@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
 	xmlns:components="components.*"
-	layout="horizontal"
 	horizontalScrollPolicy="off"
-	verticalScrollPolicy="off">
+	verticalScrollPolicy="off"
+	>
 	<mx:Script>
 		<![CDATA[
 			import mx.core.UIComponent;
 			import mx.graphics.ImageSnapshot;
-			import mx.graphics.codec.PNGEncoder;
+			import mx.managers.PopUpManager;
 			
 			public function generateFinalImage() : ByteArray {
 				
@@ -53,40 +53,73 @@
 				
 				return result;
 			}
+			
+			private function onExportButtonClick( event : MouseEvent) : void {
+				var exportWindow : ExportWindow = PopUpManager.createPopUp(this,ExportWindow,true) as ExportWindow;
+				exportWindow.imageData = generateFinalImage();
+				exportWindow.bubblesText = generateBubblesText();
+				PopUpManager.centerPopUp(exportWindow);
+			}
 		]]>
 	</mx:Script>
 	<mx:Boolean id="leftSepVisible">true</mx:Boolean>
 	<mx:Boolean id="rightSepVisible">true</mx:Boolean>
 	
-	<mx:Canvas id="canvas">
-		<mx:Image source="assets/3casesIn1-blue-sky-empty.png" width="796" height="284" x="0" y="0"/>
-		
-		<mx:Canvas id="leftSep" height="100%" x="259" width="10"
-				   backgroundColor="#FFFFFF" backgroundAlpha="{leftSepVisible?1:0}"
-				   toolTip="Cliquer la barre pour la cacher ou la montrer"
-				   rollOver="{leftSep.setStyle('backgroundColor',0xE01B32);leftSep.setStyle('backgroundAlpha',1)}"
-				   rollOut="{leftSep.setStyle('backgroundColor',0xFFFFFF);leftSep.setStyle('backgroundAlpha',leftSepVisible?1:0)}"
-				   useHandCursor="true" buttonMode="true"
-				   click="{leftSepVisible = !leftSepVisible}"/>
-		<mx:Canvas id="rightSep" height="100%" x="530" width="10"
-				   backgroundColor="#FFFFFF" backgroundAlpha="{rightSepVisible?1:0}"
-				   toolTip="Cliquer la barre pour la cacher ou la montrer"
-				   rollOver="{rightSep.setStyle('backgroundColor',0xE01B32);rightSep.setStyle('backgroundAlpha',1)}"
-				   rollOut="{rightSep.setStyle('backgroundColor',0xFFFFFF);rightSep.setStyle('backgroundAlpha',rightSepVisible?1:0)}"
-				   useHandCursor="true" buttonMode="true"
-				   click="{rightSepVisible = !rightSepVisible}"/>
-		
-		<components:Dropper   x="3" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		<components:Dropper x="152" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		<components:Dropper x="273" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		<components:Dropper x="422" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		<components:Dropper x="545" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		<components:Dropper x="694" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
-		
-		<components:Dropper   x="4" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
-		<components:Dropper x="275" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
-		<components:Dropper x="545" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
-	</mx:Canvas>
+	<mx:VBox backgroundColor="#ffffff"
+			 borderColor="#cdcdcd"
+			 borderStyle="solid"
+			 horizontalAlign="center"
+			 paddingBottom="8"
+			 paddingTop="8"
+			 paddingLeft="8"
+			 paddingRight="8">
+		<mx:HBox width="100%"
+				horizontalAlign="left"
+				horizontalGap="6"
+				verticalAlign="middle">
+			<mx:Button icon="@Embed(source='../assets/icons/blue-sky_icon.png')"
+					   click="bg.source='assets/back_blue-sky.png'"
+					   toolTip="Utiliser le fond bleu ciel"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/rain_icon.png')"
+					   click="bg.source='assets/back-rain.png'"
+					   toolTip="Utiliser le fond pluvieux"
+					   height="30" width="30"/>
+			<mx:Spacer width="100%"/>
+			<mx:Button label="Exporter..."
+					   click="onExportButtonClick(event)"/>
+		</mx:HBox>
+		<mx:Canvas id="canvas">
+			<mx:Image id="bg" source="assets/back_blue-sky.png" width="802" height="284" x="0" y="0"/>
+			
+			
+			<components:Dropper   x="3" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			<components:Dropper x="140" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			<components:Dropper x="273" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			<components:Dropper x="410" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			<components:Dropper x="545" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			<components:Dropper x="678" y="130" width="100" height="120" type="{Dropper.BIRD}"/>
+			
+			<components:Dropper   x="4" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+			<components:Dropper x="275" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+			<components:Dropper x="545" y="2" width="250" height="120" type="{Dropper.BUBBLE}"/>
+			
+			<mx:Canvas id="leftSep" height="100%" x="259" width="10"
+					   backgroundColor="#FFFFFF" backgroundAlpha="{leftSepVisible?1:0}"
+					   toolTip="Cliquer la barre pour la cacher ou la montrer"
+					   rollOver="{leftSep.setStyle('backgroundColor',0xE01B32);leftSep.setStyle('backgroundAlpha',1)}"
+					   rollOut="{leftSep.setStyle('backgroundColor',0xFFFFFF);leftSep.setStyle('backgroundAlpha',leftSepVisible?1:0)}"
+					   useHandCursor="true" buttonMode="true"
+					   click="{leftSepVisible = !leftSepVisible}"/>
+			<mx:Canvas id="rightSep" height="100%" x="530" width="10"
+					   backgroundColor="#FFFFFF" backgroundAlpha="{rightSepVisible?1:0}"
+					   toolTip="Cliquer la barre pour la cacher ou la montrer"
+					   rollOver="{rightSep.setStyle('backgroundColor',0xE01B32);rightSep.setStyle('backgroundAlpha',1)}"
+					   rollOut="{rightSep.setStyle('backgroundColor',0xFFFFFF);rightSep.setStyle('backgroundAlpha',rightSepVisible?1:0)}"
+					   useHandCursor="true" buttonMode="true"
+					   click="{rightSepVisible = !rightSepVisible}"/>
+		</mx:Canvas>
+	</mx:VBox>
 
 
-</mx:Panel>
+</mx:VBox>

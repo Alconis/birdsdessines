@@ -2,14 +2,13 @@ package components
 {
 	import flash.events.MouseEvent;
 	
-	import mx.containers.Panel;
+	import mx.containers.VBox;
 	import mx.controls.Image;
 	import mx.controls.Label;
-	import mx.core.ContainerLayout;
 	import mx.core.DragSource;
 	import mx.managers.DragManager;
 
-	public class Diapo extends Panel
+	public class Diapo extends VBox
 	{
 		private var _img : Image;
 		private var _imgId : String;
@@ -21,11 +20,10 @@ package components
 		public function Diapo( type : String, imgId : String, titl : String=null, iconId : String=null, isNew : Boolean=false)
 		{
 			super();
-			layout = ContainerLayout.VERTICAL;
 			horizontalScrollPolicy = "off";
 			verticalScrollPolicy = "off";
-			width = 110;
-			height = 130;
+			width = 120;
+			height = 135;
 			
 			_type = type;
 			_imgId = imgId;
@@ -34,8 +32,12 @@ package components
 				_img.source = "assets/birds/" + imgId + ".png";
 			}else if(Dropper.BUBBLE == _type){
 				_img.source = "assets/bubbles/" + imgId + ".png";
+			}else if(Dropper.NEW_BIRDS == _type){
+				_img.source = "assets/new_birds/" + imgId + ".png";
+			}else if(Dropper.NEW_CHOUETTE == _type){
+				_img.source = "assets/new_chouette/" + imgId + ".png";
 			}else if(Dropper.BONUS == _type){
-				_img.source = "assets/angry_birds/" + imgId + ".png";
+				_img.source = "assets/newspaper/" + imgId + ".png";
 			}
 			
 			_icon = new Image();
@@ -47,16 +49,18 @@ package components
 				_icon.source = "assets/icons/" + _iconId + ".png";
 			}
 			
-			title = titl == null ? _imgId : titl;
-			toolTip = titl;
+			//title = titl == null ? _imgId : titl;
+			//toolTip = titl;
 			_isNew = isNew;
 			
 			if(_type == Dropper.BIRD)
 				styleName = "diapoBird";
 			if(_type == Dropper.BUBBLE)
 				styleName = "diapoBubble";
-			if(_type == Dropper.BONUS)
-				styleName = "diapoBonus";
+			if(_type == Dropper.NEW_BIRDS)
+				styleName = "diapoNewBird";
+			if(_type == Dropper.NEW_CHOUETTE)
+				styleName = "diapoNewChouette";
 		}
 		
 		public function get image() : Image {
@@ -92,8 +96,7 @@ package components
 			}
 			
 		}
-		
-		
+			
 		 private function dragIt(event:MouseEvent):void{
             // Get the drag initiator component from the event object.
             var dragInitiator:Image = event.currentTarget as Image;
