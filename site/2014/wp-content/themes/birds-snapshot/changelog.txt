@@ -1,0 +1,11 @@
+*** Snapshot Changelog ***
+
+2009.16.01 - Version 1.1
+	* thumb.php - Dynamic image resizer
+	  functions.php
+	  tag.php
+	  archive.php
+	  layouts/*.php
+	  index.php
+
+2008.10.13 - Version 1.0
