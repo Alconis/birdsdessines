@@ -67,6 +67,8 @@
 				}
 				
 				var bubbleFilesNames : Array = [
+					{p:"bubble-heart"},
+					{p:"bubble-hearts"},
 					{p:"thought-bubble-left"},
 					{p:"thought-bubble-right"},
 					{p:"bubble-big-left"},
@@ -84,6 +86,8 @@
 				}
 				
 				var newBirdsFilesNames : Array = [
+					{p:"Birds-mdr_left"},
+					{p:"Birds-mdr_right"},
 					{p:"Birds_Afraid-looking-left"},
 					{p:"Birds_Afraid-looking-right"},
 					{p:"Birds_Afraid-speaking-looking-left"},
@@ -124,8 +128,7 @@
 					{p:"Birds_speaking"},
 					{p:"Birds_turning-left"},
 					{p:"Birds_turning-right"},
-					{p:"Birds_whispering-left"},
-					{p:"Birds_whispering-right"}
+					{p:"Birds_whispering-left"}
 				];
 				
 				for each(file in newBirdsFilesNames){
@@ -152,7 +155,7 @@
 					library.addDiapo(diapo);
 				}
 				
-				var newspaperBirdsFilesNames : Array = [
+				/*var newspaperBirdsFilesNames : Array = [
 					{p:"Birds_newspaper"},
 					{p:"Birds_newspaper-normal"},
 					{p:"Birds_newspaper-afraid"},
@@ -164,6 +167,28 @@
 				];
 				
 				for each(file in newspaperBirdsFilesNames){
+					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}*/
+				
+				var saintvalBirdsFilesNames : Array = [
+					{p:"Birdette_chocked"},
+					{p:"Birdette_love-left"},
+					{p:"Birdette_love-right"},
+					{p:"Birdette_normal"},
+					{p:"Birdette_normal-left"},
+					{p:"Birdette_normal-right"},
+					{p:"Birdette_smile-left"},
+					{p:"Birdette_smile-right"},
+					{p:"Birdette_speaking"},
+					{p:"Birdette_speaking-left"},
+					{p:"Birdette_speaking-right"},
+					{p:"Birds_love"},
+					{p:"Birds_love-left"},
+					{p:"Birds_love-right"}
+				];
+				
+				for each(file in saintvalBirdsFilesNames){
 					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
 				}
