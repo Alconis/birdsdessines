@@ -89,7 +89,7 @@
 				   click="_showElement = NEW_BIRDS"
 				   toolTip="Afficher les Nouveaux Birds"
 				   height="30" width="30"/>
-		<mx:Button icon="@Embed(source='../assets/icons/birdette_icon.png')"
+		<mx:Button icon="@Embed(source='../assets/icons/election_icon.png')"
 				   click="_showElement = BONUS"
 				   toolTip="Afficher les Birds Bonus"
 				   height="30" width="30"/>

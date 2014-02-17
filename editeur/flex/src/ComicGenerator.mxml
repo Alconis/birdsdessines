@@ -18,7 +18,10 @@
 			}
 			
 			private function loadLibrary() : void {
-				var birdFilesNames : Array = [
+				var file: Object;
+				var diapo : Diapo;
+				
+				/*var birdFilesNames : Array = [
 					{p:"going-out-left",t:"Part gch"},
 					{p:"going-out-right",t:"Part dte"},
 					{p:"narrating-left",t:"Chante gch"},
@@ -61,14 +64,14 @@
 					{p:"bending-speaking-turning-right"}
 				];
 				
-				for each(var file : Object in birdFilesNames){
-					var diapo : Diapo = new Diapo(Dropper.BIRD, file.p, file.t,file.i,file.n);
+				for each(file in birdFilesNames){
+					var diapo = new Diapo(Dropper.BIRD, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
-				}
+				}*/
 				
 				var bubbleFilesNames : Array = [
-					{p:"bubble-heart"},
-					{p:"bubble-hearts"},
+					/*{p:"bubble-heart"},
+					{p:"bubble-hearts"},*/
 					{p:"thought-bubble-left"},
 					{p:"thought-bubble-right"},
 					{p:"bubble-big-left"},
@@ -136,7 +139,7 @@
 					library.addDiapo(diapo);
 				}
 				
-				var newChouetteFilesNames : Array = [
+				/*var newChouetteFilesNames : Array = [
 					{p:"Chouette_afraid-looking-left"},
 					{p:"Chouette_afraid-looking-right"},
 					{p:"Chouette_afraid-speaking"},
@@ -153,7 +156,7 @@
 				for each(file in newChouetteFilesNames){
 					diapo = new Diapo(Dropper.NEW_CHOUETTE, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
-				}
+				}*/
 				
 				/*var newspaperBirdsFilesNames : Array = [
 					{p:"Birds_newspaper"},
@@ -171,7 +174,7 @@
 					library.addDiapo(diapo);
 				}*/
 				
-				var saintvalBirdsFilesNames : Array = [
+				/*var saintvalBirdsFilesNames : Array = [
 					{p:"Birdette_chocked"},
 					{p:"Birdette_love-left"},
 					{p:"Birdette_love-right"},
@@ -189,6 +192,22 @@
 				];
 				
 				for each(file in saintvalBirdsFilesNames){
+					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
+					library.addDiapo(diapo);
+				}*/
+				
+				var electionBirdsFilesNames : Array = [
+					{p:"Birds_election_normal"},
+					{p:"Birds_election_vnr"},
+					{p:"Birds_election_choc"},
+					{p:"Birds_election_speaking"},
+					{p:"Birds_election_speaking-looking-left"},
+					{p:"Birds_election_speaking-looking-right"},
+					{p:"Birds_election_looking-left"},
+					{p:"Birds_election_looking-right"}
+				];
+				
+				for each(file in electionBirdsFilesNames){
 					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
 				}

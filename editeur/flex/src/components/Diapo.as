@@ -38,7 +38,8 @@ package components
 				_img.source = "assets/new_chouette/" + imgId + ".png";
 			}else if(Dropper.BONUS == _type){
 				//_img.source = "assets/newspaper/" + imgId + ".png";
-				_img.source = "assets/saintvalentin/" + imgId + ".png";
+				//_img.source = "assets/saintvalentin/" + imgId + ".png";
+				_img.source = "assets/election/" + imgId + ".png";
 			}
 			
 			_icon = new Image();
