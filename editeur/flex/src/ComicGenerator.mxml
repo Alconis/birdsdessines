@@ -20,55 +20,7 @@
 			private function loadLibrary() : void {
 				var file: Object;
 				var diapo : Diapo;
-				
-				/*var birdFilesNames : Array = [
-					{p:"going-out-left",t:"Part gch"},
-					{p:"going-out-right",t:"Part dte"},
-					{p:"narrating-left",t:"Chante gch"},
-					{p:"narrating-right",t:"Chante dte"},
-					{p:"excusing-left"},
-					{p:"excusing-right"},
-					{p:"whispering-left"},
-					{p:"whispering-right"},
-					{p:"crazy-left"},
-					{p:"crazy-right"},
-					{p:"looking-down-turning-left"},
-					{p:"looking-down-turning-right"},
-					{p:"turning-right-eyes-closed"},
-					{p:"turning-left-eyes-closed"},
-					{p:"afraid"},
-					{p:"afraid-looking-left"},
-					{p:"afraid-looking-right"},
-					{p:"afraid-speaking"},
-					{p:"afraid-speaking-looking-left"},
-					{p:"afraid-speaking-looking-right"},
-					{p:"amused-looking-left"},
-					{p:"amused-looking-right"},
-					{p:"flap"},
-					{p:"laughing-turning-left"},
-					{p:"laughing-turning-right"},
-					{p:"looking-left"},
-					{p:"looking-right"},
-					{p:"normal"},
-					{p:"pissed"},
-					{p:"pissed-speaking"},
-					{p:"speaking"},
-					{p:"speaking-looking-left"},
-					{p:"speaking-looking-right"},
-					{p:"turning-left"},
-					{p:"turning-right"},
-					{p:"looking-sky-turning-left"},
-					{p:"looking-sky-turning-right"},
-					{p:"looking-down"},
-					{p:"bending-speaking-turning-left"},
-					{p:"bending-speaking-turning-right"}
-				];
-				
-				for each(file in birdFilesNames){
-					var diapo = new Diapo(Dropper.BIRD, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}*/
-				
+								
 				var bubbleFilesNames : Array = [
 					/*{p:"bubble-heart"},
 					{p:"bubble-hearts"},*/
@@ -158,7 +110,7 @@
 					library.addDiapo(diapo);
 				}*/
 				
-				/*var newspaperBirdsFilesNames : Array = [
+				var newspaperBirdsFilesNames : Array = [
 					{p:"Birds_newspaper"},
 					{p:"Birds_newspaper-normal"},
 					{p:"Birds_newspaper-afraid"},
@@ -172,7 +124,7 @@
 				for each(file in newspaperBirdsFilesNames){
 					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
-				}*/
+				}
 				
 				/*var saintvalBirdsFilesNames : Array = [
 					{p:"Birdette_chocked"},
@@ -196,7 +148,7 @@
 					library.addDiapo(diapo);
 				}*/
 				
-				var electionBirdsFilesNames : Array = [
+				/*var electionBirdsFilesNames : Array = [
 					{p:"Birds_election_normal"},
 					{p:"Birds_election_vnr"},
 					{p:"Birds_election_choc"},
@@ -210,7 +162,7 @@
 				for each(file in electionBirdsFilesNames){
 					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
 					library.addDiapo(diapo);
-				}
+				}*/
 				
 			}
 			

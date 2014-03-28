@@ -30,7 +30,7 @@
          				</param>
       					<param>
          					<name>userpass</name>
-         					<value>xxxxxx</value>
+         					<value>xxxxxxxx</value>
          				</param>
       					<param>
          					<name>content_struct</name>
@@ -301,7 +301,7 @@
 						<mx:String>Politique</mx:String>
 						<mx:String>Sexe</mx:String>
 						<mx:String>Sport</mx:String>
-						<mx:String>Télévision</mx:String>
+						<mx:String>TV</mx:String>
 						<mx:String>Travail</mx:String>
 					</mx:Array>
 				</mx:dataProvider>
