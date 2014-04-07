@@ -1,0 +1,6 @@
+<div id="eggs">
+	<h3>Tous les oeufs &agrave; trouver !</h3>
+	<ul>
+		<li ng-repeat="egg in eggs | orderBy:'id'"><a href="" title="{{egg.name}}" class="egg egg-{{egg.id}}"></a></li>
+	</ul>
+</div>

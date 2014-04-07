@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('clientApp', [
+angular.module('huntApp', [
   'ngRoute',
   'ngCookies',
   'ngResource',

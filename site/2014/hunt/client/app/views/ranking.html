@@ -1,0 +1,10 @@
+<div id="ranking">
+	<h3>Classement des chasseurs d'oeufs !</h3>
+	
+	<div class="row player" ng-repeat="player in players | orderBy:'score'" ng-class="{highlight : currentUser.login == player.name}">
+		<div class="col-md-2 rank">{{$index}}</div>
+		<div class="col-md-4 name">{{player.name}}</div>
+		<div class="col-md-6 score">{{player.score}} oeufs trouv&eacute;s ! </div>
+	</div>
+
+</div>

@@ -1,0 +1,84 @@
+#eggs ul li {
+  list-style-type: none;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  overflow: hidden;
+}
+#eggs ul li a {
+  display: block;
+}
+#ranking {
+  clear: both;
+}
+#ranking .highlight {
+  background-color: #274DC2;
+  color: white;
+}
+.egg {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: solid 1px #ddd;
+  background-size: auto 45px;
+  width: 50px;
+  height: 50px;
+}
+.egg.egg-1 {
+  background-image: url('../images/oeufs/angryoeuf.png');
+}
+.egg.egg-2 {
+  background-image: url('../images/oeufs/boeufrd.png');
+}
+.egg.egg-3 {
+  background-image: url('../images/oeufs/extraterroeuf.png');
+}
+.egg.egg-4 {
+  background-image: url('../images/oeufs/fromajoeuf.png');
+}
+.egg.egg-5 {
+  background-image: url('../images/oeufs/giroeuf.png');
+}
+.egg.egg-6 {
+  background-image: url('../images/oeufs/lapincretoeuf.png');
+}
+.egg.egg-7 {
+  background-image: url('../images/oeufs/meumoeuf.png');
+}
+.egg.egg-8 {
+  background-image: url('../images/oeufs/mistoeurf.png');
+}
+.egg.egg-9 {
+  background-image: url('../images/oeufs/noeudnoeuf.png');
+}
+.egg.egg-10 {
+  background-image: url('../images/oeufs/noeuf.png');
+}
+.egg.egg-11 {
+  background-image: url('../images/oeufs/oeufgrapin.png');
+}
+.egg.egg-12 {
+  background-image: url('../images/oeufs/oeufmasque.png');
+}
+.egg.egg-13 {
+  background-image: url('../images/oeufs/oeufmer.png');
+}
+.egg.egg-14 {
+  background-image: url('../images/oeufs/r2doeuf.png');
+}
+.egg.egg-15 {
+  background-image: url('../images/oeufs/shadoeufk.png');
+}
+.egg.egg-16 {
+  background-image: url('../images/oeufs/stromaoeuf.png');
+}
+.egg.egg-17 {
+  background-image: url('../images/oeufs/supernoeuf.png');
+}
+.egg.egg-18 {
+  background-image: url('../images/oeufs/zebroeuf.png');
+}
