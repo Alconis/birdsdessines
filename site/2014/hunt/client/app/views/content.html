@@ -1,0 +1,16 @@
+<div id="content" class="row">
+	<div id="ranking" class="col-sm-8">
+		
+		<div class="player" ng-repeat="player in players | orderBy:'score'">
+			<div class="rank">{{$index+1}}</div>
+			<div class="name">{{player.name}}</div>
+			<div class="score">{{player.score}} oeufs trouv&eacute;s !</div>
+		</div>
+
+	</div>
+
+	<div id="eggs" class="col-sm-4">
+		<div ng-repeat="egg in eggs | orderBy:'id'" title="{{egg.name}}" class="egg egg-{{egg.id}}" ng-bind-html="egg.name"></div>
+	</div>
+
+</div>

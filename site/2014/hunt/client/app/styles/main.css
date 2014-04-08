@@ -1,84 +1,114 @@
-#eggs ul li {
-  list-style-type: none;
-  float: left;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  position: relative;
-  overflow: hidden;
+#header {
+  background: transparent url('../images/logo.png') no-repeat 10px;
+  min-height: 250px;
+  padding-left: 400px;
+  margin: 20px;
 }
-#eggs ul li a {
-  display: block;
+#header #login {
+  text-align: right;
 }
-#ranking {
+#content {
+  margin-top: 10px;
+  border-top: 10px solid #DEDEDE;
+  border-bottom: 10px solid #DEDEDE;
+}
+#footer {
+  color: #888;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.player {
   clear: both;
+  padding: 10px;
+  border-bottom: 1px solid #DEDEDE;
 }
-#ranking .highlight {
-  background-color: #274DC2;
-  color: white;
+.player:hover {
+  background-color: aliceblue;
+}
+.player .rank {
+  font-size: 50px;
+  color: #BEBEBE;
+  float: left;
+  padding: 0 10px;
+}
+.player .name {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.player .score {
+  color: #424242;
 }
 .egg {
-  background-color: white;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  border: solid 1px #ddd;
+  background-position: 15px 50%;
+  border-bottom: solid 1px #ddd;
   background-size: auto 45px;
-  width: 50px;
-  height: 50px;
+  height: 60px;
+  padding-left: 80px;
+  font-size: 25px;
+  line-height: 50px;
+}
+.egg:hover {
+  background-color: aliceblue;
 }
 .egg.egg-1 {
-  background-image: url('../images/oeufs/angryoeuf.png');
+  background-image: url('../images/oeufs/Angry-Oeuf_16.png');
 }
 .egg.egg-2 {
-  background-image: url('../images/oeufs/boeufrd.png');
+  background-image: url('../images/oeufs/FromagOeuf_16.png');
 }
 .egg.egg-3 {
-  background-image: url('../images/oeufs/extraterroeuf.png');
+  background-image: url('../images/oeufs/GirafOeuf_16.png');
 }
 .egg.egg-4 {
-  background-image: url('../images/oeufs/fromajoeuf.png');
+  background-image: url('../images/oeufs/Koeuf_16.png');
 }
 .egg.egg-5 {
-  background-image: url('../images/oeufs/giroeuf.png');
+  background-image: url('../images/oeufs/Noeud-Oeuf_16.png');
 }
 .egg.egg-6 {
-  background-image: url('../images/oeufs/lapincretoeuf.png');
+  background-image: url('../images/oeufs/NOeuf_16.png');
 }
 .egg.egg-7 {
-  background-image: url('../images/oeufs/meumoeuf.png');
+  background-image: url('../images/oeufs/Oeuf_VenuDailleurs_16.png');
 }
 .egg.egg-8 {
-  background-image: url('../images/oeufs/mistoeurf.png');
+  background-image: url('../images/oeufs/Oeuf-Bird_16.png');
 }
 .egg.egg-9 {
-  background-image: url('../images/oeufs/noeudnoeuf.png');
+  background-image: url('../images/oeufs/Oeufcretin_16.png');
 }
 .egg.egg-10 {
-  background-image: url('../images/oeufs/noeuf.png');
+  background-image: url('../images/oeufs/Oeuf-Dupond_16.png');
 }
 .egg.egg-11 {
-  background-image: url('../images/oeufs/oeufgrapin.png');
+  background-image: url('../images/oeufs/Oeuf-masque_16.png');
 }
 .egg.egg-12 {
-  background-image: url('../images/oeufs/oeufmasque.png');
+  background-image: url('../images/oeufs/Oeufmer_16.png');
 }
 .egg.egg-13 {
-  background-image: url('../images/oeufs/oeufmer.png');
+  background-image: url('../images/oeufs/Oeuf-VenerateurDuCrochet_16.png');
 }
 .egg.egg-14 {
-  background-image: url('../images/oeufs/r2doeuf.png');
+  background-image: url('../images/oeufs/Presidoeuf_16.png');
 }
 .egg.egg-15 {
-  background-image: url('../images/oeufs/shadoeufk.png');
+  background-image: url('../images/oeufs/R2D-oeuf_16.png');
 }
 .egg.egg-16 {
-  background-image: url('../images/oeufs/stromaoeuf.png');
+  background-image: url('../images/oeufs/ShadOeuf_16.png');
 }
 .egg.egg-17 {
-  background-image: url('../images/oeufs/supernoeuf.png');
+  background-image: url('../images/oeufs/Stroma-oeuf_16.png');
 }
 .egg.egg-18 {
-  background-image: url('../images/oeufs/zebroeuf.png');
+  background-image: url('../images/oeufs/Super-oeuf_16.png');
+}
+.egg.egg-19 {
+  background-image: url('../images/oeufs/VachOeuf_16.png');
+}
+.egg.egg-20 {
+  background-image: url('../images/oeufs/Zebr-oeuf_16.png');
 }
