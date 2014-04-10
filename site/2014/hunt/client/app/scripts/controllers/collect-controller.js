@@ -10,6 +10,7 @@ angular.module('huntApp')
 		$scope.alreadyCollected = false;
 
 		$scope.setForm = function(f) {
+			$scope.formError = null;
 			$scope.theForm = f;
 		};
 
@@ -17,7 +18,7 @@ angular.module('huntApp')
 			$scope.formError = null;
 
 			if(password != password2) {
-				$scope.formError = "Les deux mots de passe doivent &ecirc;tre identiques."
+				$scope.formError = "Les deux mots de passe doivent être identiques."
 				return;
 			}
 

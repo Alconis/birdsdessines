@@ -1,8 +1,5 @@
-'use strict';
-
 angular.module('huntApp')
-	.controller('MainCtrl', function ($scope, Hunt) {
-
+	.controller('loginCtrl', function($scope, Hunt) {
 		$scope.theForm = null;
 		$scope.setForm = function(f) {
 			$scope.formError = null;
@@ -41,37 +38,4 @@ angular.module('huntApp')
 				$scope.setForm(null);
 			});
 		};
-
-		$scope.getPlayers = function() {
-			Hunt.getPlayers()
-			.then(function(data) {
-				var nbPlayers = 0;
-				angular.forEach(data, function(value, key) {
-					nbPlayers++;
-				});
-				$scope.nbPlayers = nbPlayers;
-				$scope.players = data;
-			});
-		};
-
-		Hunt.getEggs()
-			.then(function(data) {
-				var nbAvailableEggs = 0;
-				angular.forEach(data, function(value) {
-					if(value.status != 'off') {
-						nbAvailableEggs++;
-					}
-				});
-
-				$scope.nbAvailableEggs = nbAvailableEggs;
-				$scope.eggs = data;
-			});
-
-		$scope.getPlayers();
-
-		Hunt.getCurrentUser()
-			.then(function(data) {
-				$scope.currentUser = data;
-			});
-
 	});

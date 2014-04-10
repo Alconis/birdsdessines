@@ -139,11 +139,13 @@ angular.module('huntApp')
 							}
 						});
 
+						var finalPlayers = [];
 						angular.forEach(players, function(value, key) {
 							value.score = value.eggs.length;
+							finalPlayers.push(value);
 						});
 
-						deferred.resolve(players);
+						deferred.resolve(finalPlayers);
 					}).
 					error(function(data, status, headers, config) {
 						deferred.reject(data);

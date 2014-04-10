@@ -16,6 +16,12 @@ angular.module('huntApp', [
         templateUrl: 'views/collect.html',
         controller: 'CollectCtrl'
       })
+      .when('/info', {
+        templateUrl: 'views/info.html'
+      })
+      .when('/beta', {
+        templateUrl: 'views/beta.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

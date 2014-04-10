@@ -7,15 +7,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chasse aux oeufs 2014 - BirdsDessines.fr</title>
-    <meta name="description" content="">
+    <meta name="description" content="Jouer à la Chasse aux Oeufs BirdsDessines et gagner un mug !">
     <meta name="viewport" content="width=device-width">
+    <meta property="og:image" content="http://www.birdsdessines.fr/hunt/images/logo_fb.png">
+    <meta property="og:title" content="Jouer à la Chasse aux Oeufs BirdsDessines et gagner un mug !">
+    <meta property="og:url" content="http://www.birdsdessines.fr/hunt/">
+    <meta property="og:site_name" content="Chasse aux oeufs 2014 - BirdsDessines.fr">
+    <meta property="og:type" content="website">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/main2.css">
         <!-- endbuild -->
 </head>
   <body ng-app="huntApp">
@@ -28,7 +32,26 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <!-- Facebook share -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '139872552493',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/fr_FR/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -38,10 +61,9 @@
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       ga('create', 'UA-712741-2');
        ga('send', 'pageview');
     </script>
-
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>

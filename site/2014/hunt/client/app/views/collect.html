@@ -3,7 +3,7 @@
 	<div class="col-md-4">
 
 		<div ng-if="theEgg">
-			<div class="foundEgg egg-{{theEgg.id}}">
+			<div class="foundEgg egg-big-{{theEgg.id}}">
 				<h2>{{theEgg.name}}</h2>
 			</div>
 		</div>
@@ -20,17 +20,17 @@
 			<h1>Vous avez trouv&eacute; un oeuf !</h1>
 
 			<div ng-if="currentUser && collected">
-				<p class="text-muted">Bravo, <strong>{{currentUser.login}}</strong> ! Vous venez d'ajouter l'oeuf <strong>{{theEgg.name}}</strong> &agrave; votre panier ! Il y a 20 oeufs au total &agrave; trouver sur BirdsDessines.fr. Continuez &agrave; les amasser et vous gagnerez peut-&ecirc;tre le superbe mug mis en jeu.</p>
+				<p>Bravo, <strong>{{currentUser.login}}</strong> ! Vous venez d'ajouter l'oeuf <strong>{{theEgg.name}}</strong> &agrave; votre panier ! Il y a 20 oeufs au total &agrave; trouver sur BirdsDessines.fr. Continuez &agrave; les amasser et vous gagnerez peut-&ecirc;tre le superbe mug mis en jeu.</p>
 				<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
 			</div>
 
 			<div ng-if="currentUser && alreadyCollected">
-				<p class="text-muted">Désolé <strong>{{currentUser.login}}</strong>, mais vous poss&eacute;dez d&eacute;j&agrave; l'oeuf {{theEgg.name}} dans votre panier. Continuez &agrave; chercher !</p>
+				<p>Désolé <strong>{{currentUser.login}}</strong>, mais vous poss&eacute;dez d&eacute;j&agrave; l'oeuf {{theEgg.name}} dans votre panier. Continuez &agrave; chercher !</p>
 				<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
 			</div>
 
 			<div ng-if="!currentUser">
-				<p class="text-muted">Bravo ! Vous venez de trouver un oeuf de la Chasse aux Oeufs 2014 ! Les Birds en ont cach&eacute; 20 en tout sur le site <a href="http://www.birdsdessines.fr">BirdsDessines.fr</a>. Retrouvez-les tous et vous gagnerez peut-&ecirc;tre le superbe mug BirdsDessines. Pour ajouter votre oeuf &agrave; votre panier, cliquez sur "Je m'inscris" s'il s'agit l&agrave; de votre premier oeuf. Sinon cliquez sur "Je me connecte" pour l'ajouter &agrave; votre panier existant.</p>
+				<p>Bravo ! Vous venez de trouver un oeuf de la Chasse aux Oeufs 2014 ! Les Birds en ont cach&eacute; 20 en tout sur le site <a href="http://www.birdsdessines.fr">BirdsDessines.fr</a>. Retrouvez-les tous et vous gagnerez peut-&ecirc;tre le superbe mug BirdsDessines. Pour ajouter votre oeuf &agrave; votre panier, cliquez sur "Je m'inscris" s'il s'agit l&agrave; de votre premier oeuf. Sinon cliquez sur "Je me connecte" pour l'ajouter &agrave; votre panier existant.</p>
 
 				<p>
 					<form role="form" ng-if="theForm == 'sub'" ng-submit="doSubscribe(login, password, password2)">
@@ -79,7 +79,7 @@
 
 		<div ng-if="!theEgg">
 			<h1>Quelque chose ne va pas !</h1>
-			<p class="text-muted">Malheureusement, vous avez d&ucirc; vous tromper quelque part.</p>
+			<p>Malheureusement, vous avez d&ucirc; vous tromper quelque part.</p>
 			<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
 		</div>
 	</div>
