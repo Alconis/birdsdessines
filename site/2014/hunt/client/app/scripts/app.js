@@ -12,6 +12,10 @@ angular.module('huntApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/collect/:eggId/:eggCode', {
+        templateUrl: 'views/collect.html',
+        controller: 'CollectCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

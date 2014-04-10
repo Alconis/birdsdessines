@@ -11,6 +11,7 @@ $action = $_GET['do']; if(!$action) $action = 'list';
 $user = $_GET['user']; if(!$user) $user = $_COOKIE[USER_COOKIE];
 $egg = $_GET['egg'];
 $pass = $_GET['pass'];
+$code = $_GET['code'];
 
 $status = 200;
 $result;
@@ -153,6 +154,63 @@ switch ($action) {
 		if(!$egg) {
 			$status = 404;
 			$result = "Unknown egg";
+			break;
+		}
+		if(!$code) {
+			$status = 404;
+			$result = "Unknown code";
+			break;
+		}
+
+		$sql = "SELECT * FROM `hunt_users` WHERE `id` = '" . mysql_real_escape_string(addslashes($user)) . "'";
+		$req = mysql_query($sql);
+		if(false == $req) {
+			$status = 500;
+			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
+			break;
+		}
+		if(0 == mysql_num_rows($req)) {
+			$status = 403;
+			$result = "User " . $user . " does not exist.";
+			break;
+		}
+
+		$sql = "SELECT * FROM `hunt_eggs` WHERE `id` = '" . mysql_real_escape_string(addslashes($egg)) . "'";
+		$req = mysql_query($sql);
+		if(false == $req) {
+			$status = 500;
+			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
+			break;
+		}
+		if(0 == mysql_num_rows($req)) {
+			$status = 403;
+			$result = "Egg " . $egg . " does not exist.";
+			break;
+		}
+
+		$sql = "SELECT * FROM `hunt_users_eggs` WHERE `user` = '" . mysql_real_escape_string(addslashes($user)) . "' AND `egg` = '" . mysql_real_escape_string(addslashes($egg)) . "' ";
+		$req = mysql_query($sql);
+		if(false == $req) {
+			$status = 500;
+			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
+			break;
+		}
+		if(0 != mysql_num_rows($req)) {
+			$status = 409;
+			$result = "User " . $user . " has already collected egg " . $egg . ".";
+			break;
+		}
+
+		$sql = "SELECT * FROM `hunt_eggs` WHERE `id` = '" . mysql_real_escape_string(addslashes($egg)) . "' AND `code` = '" . mysql_real_escape_string(addslashes($code)) . "'";
+		$req = mysql_query($sql);
+		if(false == $req) {
+			$status = 500;
+			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
+			break;
+		}
+		if(0 == mysql_num_rows($req)) {
+			$status = 403;
+			$result = "Code '" . $code . "' is not the good one for egg " . $egg . ".";
 			break;
 		}
 

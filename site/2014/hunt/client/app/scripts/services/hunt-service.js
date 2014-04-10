@@ -51,7 +51,24 @@ angular.module('huntApp')
 			};
 
 			this.subscribe = function(login, password) {
-				
+				var deferred = $q.defer();
+
+				$http({
+						method: 'get',
+						url: this.baseURL + 'user.php' + '?do=add',
+						params : {
+							user: login,
+							pass: password
+						}
+					})
+					.success(function(data, status, headers, config) {
+						deferred.resolve(data);
+					}).
+					error(function(data, status, headers, config) {
+						deferred.reject(data);
+					});
+
+				return deferred.promise;
 			};
 
 			this.getCurrentUser = function() {
@@ -71,8 +88,25 @@ angular.module('huntApp')
 				return deferred.promise;
 			};
 
-			this.collectEgg = function() {
-				
+			this.collect = function(eggId, eggCode) {
+				var deferred = $q.defer();
+
+				$http({
+						method: 'get',
+						url: this.baseURL + 'user.php' + '?do=collect',
+						params : {
+							egg: eggId,
+							code: eggCode
+						}
+					})
+					.success(function(data, status, headers, config) {
+						deferred.resolve(data);
+					}).
+					error(function(data, status, headers, config) {
+						deferred.reject(data);
+					});
+
+				return deferred.promise;
 			};
 
 			this.getPlayers = function() {
@@ -97,10 +131,12 @@ angular.module('huntApp')
 								};
 								players[value.id] = player;
 							}
-							player.eggs.push({
-								id: value.egg,
-								time: value.time
-							})
+							if(null != value.egg) {
+								player.eggs.push({
+									id: value.egg,
+									time: value.time
+								});
+							}
 						});
 
 						angular.forEach(players, function(value, key) {

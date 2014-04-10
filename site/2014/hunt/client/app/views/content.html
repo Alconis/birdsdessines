@@ -1,16 +1,25 @@
 <div id="content" class="row">
 	<div id="ranking" class="col-sm-8">
 		
-		<div class="player" ng-repeat="player in players | orderBy:'score'">
+		<h2>{{nbPlayers}} chasseurs d'oeufs !</h2>
+		<div class="player"
+				ng-repeat="player in players | orderBy:'score'"
+				ng-class="{highlighted: currentUser.id == player.id}"
+				ng-mouseover="setHighlightedUser(player)"
+				ng-mouseleave="setHighlightedUser(null)">
 			<div class="rank">{{$index+1}}</div>
 			<div class="name">{{player.name}}</div>
 			<div class="score">{{player.score}} oeufs trouv&eacute;s !</div>
 		</div>
-
 	</div>
 
 	<div id="eggs" class="col-sm-4">
-		<div ng-repeat="egg in eggs | orderBy:'id'" title="{{egg.name}}" class="egg egg-{{egg.id}}" ng-bind-html="egg.name"></div>
+
+		<h2 >{{eggs.length}} oeufs &agrave; trouver !</h2>
+		<div title="{{egg.name}}" class="egg egg-{{egg.id}}"
+				ng-repeat="egg in eggs | orderBy:'name'"
+				ng-bind-html="egg.name"></div>
+
 	</div>
 
 </div>
