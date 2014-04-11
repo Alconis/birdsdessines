@@ -25,18 +25,24 @@ angular.module('huntApp')
 			this.login = function(login, password) {
 				var deferred = $q.defer();
 
+				var shaPass = new jsSHA(password, 'TEXT');
+				var hashedPass = shaPass.getHash('SHA-1', 'B64');
+
 				$http({
 						method: 'get',
 						url: this.baseURL + 'user.php' + '?do=login',
 						params : {
 							user: login,
-							pass: password
+							pass: hashedPass
 						}
 					})
 					.success(function(data, status, headers, config) {
 						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
+						if(status == 401 || status == 404) {
+							deferred.reject('Identifiant ou mot de passe invalide.');
+						}
 						deferred.reject(data);
 					});
 
@@ -53,12 +59,15 @@ angular.module('huntApp')
 			this.subscribe = function(login, password) {
 				var deferred = $q.defer();
 
+				var shaPass = new jsSHA(password, 'TEXT');
+				var hashedPass = shaPass.getHash('SHA-1', 'B64');
+				
 				$http({
 						method: 'get',
 						url: this.baseURL + 'user.php' + '?do=add',
 						params : {
 							user: login,
-							pass: password
+							pass: hashedPass
 						}
 					})
 					.success(function(data, status, headers, config) {
@@ -103,6 +112,9 @@ angular.module('huntApp')
 						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
+						if(status == 409) {
+							deferred.reject('alreadyCollected');
+						}
 						deferred.reject(data);
 					});
 

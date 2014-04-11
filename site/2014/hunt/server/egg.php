@@ -13,7 +13,7 @@ $result;
 switch ($action) {
 	default:
 
-		$sql = 'SELECT * FROM hunt_eggs WHERE 1';
+		$sql = 'SELECT `id`, `name`, `status` FROM hunt_eggs WHERE 1';
 
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	 

@@ -17,6 +17,16 @@ angular.module('huntApp')
 		$scope.doSubscribe = function(login, password, password2) {
 			$scope.formError = null;
 
+			if(!login || login.length < 4) {
+				$scope.formError = "Identifiant invalide. (4 caractères minimum)"
+				return;
+			}
+
+			if(!password || password.length < 4) {
+				$scope.formError = "Mot de passe invalide. (4 caractères minimum)"
+				return;
+			}
+
 			if(password != password2) {
 				$scope.formError = "Les deux mots de passe doivent être identiques."
 				return;
@@ -48,18 +58,16 @@ angular.module('huntApp')
 				.then(function(data) {
 					$scope.collected = true;
 				}, function(reason) {
-					$scope.alreadyCollected = true;
+					if(reason == 'alreadyCollected') {
+						$scope.alreadyCollected = true;
+					}
 				});
-		}
-
-		if(!$scope.eggId || !$scope.eggCode) {
-			$scope.fail = true;
 		}
 
 		Hunt.getEggs()
 			.then(function(data) {
 				angular.forEach(data, function(value) {
-					if(value.id == $scope.eggId && value.code == $scope.eggCode){
+					if(value.id == $scope.eggId){
 						$scope.theEgg = value;
 						return;
 					}
@@ -70,7 +78,7 @@ angular.module('huntApp')
 			.then(function(data) {
 				$scope.currentUser = data;
 
-				if(!$scope.fail) {
+				if($scope.eggId && $scope.eggCode) {
 					$scope.collect();
 				}
 			});

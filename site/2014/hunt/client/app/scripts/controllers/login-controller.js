@@ -9,6 +9,16 @@ angular.module('huntApp')
 		$scope.doSubscribe = function(login, password, password2) {
 			$scope.formError = null;
 
+			if(!login || login.length < 4) {
+				$scope.formError = "Identifiant invalide. (4 caractères minimum)"
+				return;
+			}
+
+			if(!password || password.length < 4) {
+				$scope.formError = "Mot de passe invalide. (4 caractères minimum)"
+				return;
+			}
+
 			if(password != password2) {
 				$scope.formError = "Les deux mots de passe doivent être identiques."
 				return;
