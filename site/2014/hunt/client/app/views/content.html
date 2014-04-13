@@ -17,7 +17,9 @@
 			</div>
 			<div class="rank">{{rank}}</div>
 			<div class="name">{{player.name}}</div>
-			<div class="score">{{player.score}} oeufs trouv&eacute;s !</div>
+			<div class="score" ng-if="player.score == 0">n'a pas encore trouv&eacute; d'oeufs !</div>
+			<div class="score" ng-if="player.score == 1">{{player.score}} oeufs trouv&eacute; !</div>
+			<div class="score" ng-if="player.score > 1">{{player.score}} oeufs trouv&eacute;s !</div>
 		</div>
 	</div>
 

@@ -115,6 +115,9 @@ angular.module('huntApp')
 						if(status == 409) {
 							deferred.reject('alreadyCollected');
 						}
+						if(status == 403) {
+							deferred.reject('badEggCode');
+						}
 						deferred.reject(data);
 					});
 

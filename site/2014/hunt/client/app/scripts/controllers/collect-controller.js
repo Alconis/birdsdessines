@@ -2,6 +2,7 @@
 
 angular.module('huntApp')
 	.controller('CollectCtrl', function($scope, $routeParams, Hunt) {
+		$scope.initialized = false;
 		$scope.theForm = null;
 		$scope.theEgg = null;
 		$scope.eggId = $routeParams['eggId'];
@@ -61,6 +62,10 @@ angular.module('huntApp')
 					if(reason == 'alreadyCollected') {
 						$scope.alreadyCollected = true;
 					}
+					if(reason == 'badEggCode') {
+						$scope.theEgg = null;
+						$scope.hack = true;
+					}
 				});
 		}
 
@@ -71,6 +76,8 @@ angular.module('huntApp')
 						$scope.theEgg = value;
 						return;
 					}
+				}, function(reason){
+					$scope.initialized = true;
 				});
 			});
 
@@ -79,7 +86,14 @@ angular.module('huntApp')
 				$scope.currentUser = data;
 
 				if($scope.eggId && $scope.eggCode) {
+					$scope.initialized = true;
 					$scope.collect();
+				}else{
+					$scope.theEgg = null;
+					$scope.hack = true;
+					$scope.initialized = true;
 				}
+			}, function(reason) {
+				$scope.initialized = true;
 			});
 	});
