@@ -164,7 +164,7 @@ switch ($action) {
 			break;
 		}
 
-		hunt_log($user, 'changes username to ' . newName);
+		hunt_log($user, 'changes username to ' . $newName);
 		break;
 
 	case 'collect':
