@@ -62,6 +62,7 @@ switch ($action) {
 			break;
 		}
 
+		hunt_log($user, 'new subscription');
 		// Automatically login by not breaking switch
 
 	case 'login':
@@ -162,6 +163,8 @@ switch ($action) {
 			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
 			break;
 		}
+
+		hunt_log($user, 'changes username to ' . newName);
 		break;
 
 	case 'collect':
@@ -232,6 +235,8 @@ switch ($action) {
 		if(0 == mysql_num_rows($req)) {
 			$status = 403;
 			$result = "Code '" . $code . "' is not the good one for egg " . $egg . ".";
+
+			hunt_log($user, 'tries to collect egg ' . $egg . ' with code ' . $code);
 			break;
 		}
 
@@ -242,6 +247,8 @@ switch ($action) {
 			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
 			break;
 		}
+
+		hunt_log($user, 'collects egg ' . $egg);
 
 		break;
 

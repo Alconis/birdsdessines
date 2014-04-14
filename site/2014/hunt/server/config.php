@@ -10,4 +10,11 @@ define('USER_COOKIE', 'hunt_user');
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
+function hunt_log($user, $action)
+{
+	$ip = $_SERVER['REMOTE_ADDR'];
+    $sql = "INSERT INTO `hunt_logs` (`ip`, `user`, `action`) VALUES ('" . mysql_real_escape_string(addslashes($ip)) . "', '" . mysql_real_escape_string(addslashes($user)) . "', '" . mysql_real_escape_string(addslashes($action)) . "');";
+    $req = mysql_query($sql);
+}
+
 ?>
