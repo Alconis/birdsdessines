@@ -12,6 +12,7 @@ $user = $_GET['user']; if(!$user) $user = $_COOKIE[USER_COOKIE];
 $egg = $_GET['egg'];
 $pass = $_GET['pass'];
 $code = $_GET['code'];
+$newName = $_GET['newName'];
 
 $status = 200;
 $result;
@@ -141,6 +142,26 @@ switch ($action) {
 			"eggs" => $found_eggs
 		);
 
+		break;
+	case 'rename':
+		// Conditions
+		if(!$user) {
+			$status = 404;
+			$result = "Unknown user";
+			break;
+		}
+		if(!$newName) {
+			$status = 404;
+			$result = "Unknown user";
+			break;
+		}
+		$sql = "UPDATE `hunt_users` SET `login` = '" . mysql_real_escape_string(addslashes($newName)) . "' WHERE `hunt_users`.`id` = '" . mysql_real_escape_string(addslashes($user)) . "'";
+		$req = mysql_query($sql);
+		if(false == $req) {
+			$status = 500;
+			$result = " SQL Error: " . $sql . '<br>' . mysql_error();
+			break;
+		}
 		break;
 
 	case 'collect':

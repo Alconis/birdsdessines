@@ -168,6 +168,26 @@ angular.module('huntApp')
 
 				return deferred.promise;
 			};
+
+			this.rename = function(newName) {
+				var deferred = $q.defer();
+
+				$http({
+						method: 'get',
+						url: this.baseURL + 'user.php' + '?do=rename',
+						params : {
+							newName: newName
+						}
+					})
+					.success(function(data, status, headers, config) {
+						deferred.resolve(data);
+					}).
+					error(function(data, status, headers, config) {
+						deferred.reject(data);
+					});
+
+				return deferred.promise;
+			};
 		};
 
 		return new HuntService();

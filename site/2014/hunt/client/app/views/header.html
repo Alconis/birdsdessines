@@ -57,9 +57,20 @@
 
 
 		<div id="login" ng-if="currentUser" class="col-md-4 alert alert-info text-center">
-			Bonjour <strong>{{currentUser.login}}</strong> ! <a href="" ng-click="doLogout()">Me d&eacute;connecter</a>
-		</div>
+			Bonjour <strong>{{currentUser.login}}</strong> ! <br>
+			<a href="" ng-click="setForm('rename')">Changer mon identifiant</a> | 
+			<a href="" ng-click="doLogout()">Me d&eacute;connecter</a>
 
+			<form role="form" ng-if="theForm == 'rename'" ng-submit="doRename(newName)">
+				<div class="form-group">
+					<label class="sr-only" for="renameInput">Nouvel identifiant</label>
+					<input type="text" class="form-control" id="renameInput" placeholder="Nouvel identifiant" ng-model="newName">
+				</div>
+				<p ng-show="formError" class="text-danger">{{formError}}</p>
+				<button type="submit" class="btn btn-primary">Valider</button>
+				<button type="button" class="btn btn-default" ng-click="setForm(null)">Annuler</button>
+			</form>
+		</div>
 
 	</div>
 

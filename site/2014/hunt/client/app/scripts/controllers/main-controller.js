@@ -46,10 +46,24 @@ angular.module('huntApp')
 		};
 
 		$scope.doLogout = function() {
-			Hunt.logout().then(function() {
-				$scope.currentUser = null;
-				$scope.setForm(null);
-			});
+			Hunt.logout()
+				.then(function() {
+					$scope.currentUser = null;
+					$scope.setForm(null);
+				});
+		};
+
+		$scope.doRename = function(newName) {
+			Hunt.rename(newName)
+				.then(function(data) {
+					Hunt.getCurrentUser()
+						.then(function(data) {
+							$scope.currentUser = data;
+							$scope.setForm(null);
+						});
+				}, function(reason) {
+					$scope.formError = reason;
+				});
 		};
 
 		$scope.getPlayers = function() {
