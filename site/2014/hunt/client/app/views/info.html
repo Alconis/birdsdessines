@@ -12,7 +12,11 @@
 		<p>Les gagnants devront se connecter de nouveau au site quelques jours apr&egrave;s pour d&eacute;couvrir s'ils sont gagnants et comment obtenir leur mug.</p>
 		<p>Pour toute information, merci de nous contacter par mail à webmaster [a] birdsdessines.fr.</p>
 		<p><strong>Bonne chance &agrave; tous !</strong></p>
-		<p><a href="http://www.birdsdessines.fr/hunt" class="btn btn-default">Retourner sur le site officiel</a></p>
+		<p>
+			<a href="http://www.birdsdessines.fr/hunt" class="btn btn-primary">Retourner sur le site officiel</a> 
+			<a ng-show="!showIncognitoeuf" ng-init="showIncognitoeuf = false" href="" class="btn btn-default" ng-click="showIncognitoeuf = true">Cliquer ni vu ni connu...</a>
+			<a ng-show="showIncognitoeuf" href="http://www.birdsdessines.fr/hunt/#/collect/11/pzrwbnbeaa4" title="Incognitoeuf de la Chasse aux Oeufs 2014"><img src="http://birdsdessines.fr/hunt/images/oeufs/Oeuf-masque_16.png"></a>
+		</p>
 	</div>
 </div>
 

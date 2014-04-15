@@ -27,6 +27,10 @@ body {
   border-bottom: 2px solid #585858;
   padding-bottom: 10px;
 }
+#content #scoreFilterBar {
+  border-bottom: 2px solid #585858;
+  padding-bottom: 10px;
+}
 #footer {
   color: #888;
   height: 50px;
@@ -75,6 +79,7 @@ body {
   width: 50px;
 }
 .egg {
+  position: relative;
   background-repeat: no-repeat;
   background-position: 15px 50%;
   border-bottom: solid 1px #ddd;
@@ -227,7 +232,7 @@ body {
 .egg-big-12 {
   background-image: url('../images/oeufs/Oeufmer_32.png');
 }
-.egg-big13 {
+.egg-big-13 {
   background-image: url('../images/oeufs/Oeuf-VenerateurDuCrochet_32.png');
 }
 .egg-big-14 {
@@ -236,7 +241,7 @@ body {
 .egg-big-15 {
   background-image: url('../images/oeufs/R2D-oeuf_32.png');
 }
-.egg-big-32 {
+.egg-big-16 {
   background-image: url('../images/oeufs/ShadOeuf_32.png');
 }
 .egg-big-17 {

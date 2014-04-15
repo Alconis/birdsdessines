@@ -2,6 +2,11 @@
 
 angular.module('huntApp')
 	.controller('MainCtrl', function ($scope, Hunt) {
+		$scope.initialized = false;
+
+		$scope.setFilterScore = function(f) {
+			$scope.filterScore = f;
+		};
 
 		$scope.theForm = null;
 		$scope.setForm = function(f) {
@@ -69,12 +74,38 @@ angular.module('huntApp')
 		$scope.getPlayers = function() {
 			Hunt.getPlayers()
 			.then(function(data) {
+				var scoreFilters = {};
+				var scoreFiltersKeys = [];
+				var maxScore = 0;
 				var nbPlayers = 0;
 				angular.forEach(data, function(value, key) {
+					if(undefined == scoreFilters[value.score]) {
+						scoreFilters[value.score] = {
+							count : 0
+						};
+						scoreFiltersKeys.push(value.score);
+						maxScore = Math.max(maxScore, value.score);
+					}
+					scoreFilters[value.score].count = scoreFilters[value.score].count + 1;
 					nbPlayers++;
 				});
+				scoreFiltersKeys.sort();
+				scoreFiltersKeys.reverse();
+
+				var i;
+				var sum = 0;
+				for(i = 0; i < scoreFiltersKeys.length; i++) {
+					var score = scoreFiltersKeys[i];
+					scoreFilters[score].startRank = sum;
+					sum += scoreFilters[score].count;
+				}
+
+				$scope.scoreFiltersKeys = scoreFiltersKeys;
+				$scope.scoreFilters = scoreFilters;
+				$scope.filterScore = maxScore;
 				$scope.nbPlayers = nbPlayers;
 				$scope.players = data;
+				$scope.initialized = true;
 			});
 		};
 

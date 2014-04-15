@@ -4,9 +4,23 @@
 		<h2>{{nbPlayers}} chasseurs d'oeufs !
 		<input type="search" class="form-control pull-right" style="width:initial;" ng-model="filterPlayer" placeholder="rechercher...">
 		</h2>
+
+		<div ng-if="!initialized" class="progress progress-striped active">
+		  <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    <span class="sr-only">In progress...</span>
+		  </div>
+		</div>
+
+		<ul id="scoreFilterBar" class="nav nav-pills">
+			<li ng-repeat="scoreFilter in scoreFiltersKeys"
+				ng-class="{'active' : filterScore == scoreFilter}"
+				ng-click="setFilterScore(scoreFilter)">
+					<a href="">{{scoreFilter}} oeufs ({{scoreFilters[scoreFilter].count}})</a>
+			</li>
+		</ul>
 		<div class="player"
-				ng-repeat="player in players | orderBy:'-score' | filter:filterPlayer track by player.id"
-				ng-init="rank = $index+1"
+				ng-repeat="player in players | filter:{name:filterPlayer,score:filterScore} track by player.id"
+				ng-init="rank = scoreFilters[filterScore].startRank + $index + 1"
 				ng-class="{highlighted: currentUser.id == player.id}">
 			<div class="eggs">
 				<a href="" 
@@ -31,6 +45,7 @@
 				ng-class="{off: egg.status == 'off'}">
 			<span class="name" ng-bind-html="egg.name"></span>
 			<span ng-if="egg.status == 'off'" class="not_available">Bient&ocirc;t disponible !</span>
+			<span ng-if="egg.status == 'hard'" class="not_available">Difficile !</span>
 		</div>
 
 	</div>
