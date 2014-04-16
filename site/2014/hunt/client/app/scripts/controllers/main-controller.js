@@ -89,7 +89,7 @@ angular.module('huntApp')
 					scoreFilters[value.score].count = scoreFilters[value.score].count + 1;
 					nbPlayers++;
 				});
-				scoreFiltersKeys.sort();
+				scoreFiltersKeys.sort(function(a,b){return a-b});
 				scoreFiltersKeys.reverse();
 
 				var i;

@@ -30,7 +30,7 @@
 				</a>
 			</div>
 			<div class="rank">{{rank}}</div>
-			<div class="name">{{player.name}}</div>
+			<div class="name">{{player.name | mailSafe}}</div>
 			<div class="score" ng-if="player.score == 0">n'a pas encore trouv&eacute; d'oeufs !</div>
 			<div class="score" ng-if="player.score == 1">{{player.score}} oeufs trouv&eacute; !</div>
 			<div class="score" ng-if="player.score > 1">{{player.score}} oeufs trouv&eacute;s !</div>
@@ -46,6 +46,7 @@
 			<span class="name" ng-bind-html="egg.name"></span>
 			<span ng-if="egg.status == 'off'" class="not_available">Bient&ocirc;t disponible !</span>
 			<span ng-if="egg.status == 'hard'" class="not_available">Difficile !</span>
+			<span ng-if="egg.status == 'easy'" class="not_available"><a href="http://www.birdsdessines.fr/hunt/#/collect/5/oopl1977ghd">Trop facile !</a></span>
 		</div>
 
 	</div>

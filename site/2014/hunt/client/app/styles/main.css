@@ -115,6 +115,9 @@ body {
   color: white;
   line-height: 10px;
 }
+.egg .not_available a {
+  color: white;
+}
 #collect {
   background-color: honeydew;
   border-radius: 10px;

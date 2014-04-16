@@ -30,6 +30,13 @@
 					bonusBrowser.addChild(diapo);
 				}
 			}
+			
+			protected function egghunt_clickHandler(event:MouseEvent):void
+			{
+				var urlReq : URLRequest = new URLRequest('http://www.birdsdessines.fr/hunt/#/collect/9/54aacxwzza');
+				navigateToURL(urlReq);
+			}
+			
 		]]>
 	</mx:Script>
 	<mx:HBox id="bubblesBrowser" width="750" height="100%"
@@ -85,6 +92,10 @@
 		<mx:Button icon="@Embed(source='../assets/icons/bubble_icon2.png')"
 				   click="_showElement = BUBBLES"
 				   toolTip="Afficher les bulles"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/oeufcretin_icon.png')"
+				   click="egghunt_clickHandler(event)"
+				   toolTip="Chassoyons l'ovoide..."
 				   height="30" width="30"/>
 	</mx:VBox>
 </mx:HBox>
