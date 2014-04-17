@@ -43,7 +43,8 @@
 		<div title="{{egg.name}}" class="egg egg-{{egg.id}}"
 				ng-repeat="egg in eggs | orderBy:'name'"
 				ng-class="{off: egg.status == 'off'}">
-			<span class="name" ng-bind-html="egg.name"></span>
+			<span class="name" ng-bind-html="egg.name"></span><br/>
+			<span ng-if="eggStats[egg.id]" class="stats text-muted">Trouv&eacute; par {{eggStats[egg.id]}} / {{nbPlayers}}</span>
 			<span ng-if="egg.status == 'off'" class="not_available">Bient&ocirc;t disponible !</span>
 			<span ng-if="egg.status == 'hard'" class="not_available">Difficile !</span>
 			<span ng-if="egg.status == 'easy'" class="not_available"><a href="http://www.birdsdessines.fr/hunt/#/collect/5/oopl1977ghd">Trop facile !</a></span>

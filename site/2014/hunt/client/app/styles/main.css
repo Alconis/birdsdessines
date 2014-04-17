@@ -86,8 +86,6 @@ body {
   background-size: auto 45px;
   height: 60px;
   padding-left: 80px;
-  font-size: 25px;
-  line-height: 50px;
 }
 .egg:hover {
   background-color: #eeeeee;
@@ -104,6 +102,13 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+}
+.egg .name {
+  font-size: 25px;
+  line-height: 25px;
+}
+.egg .stats {
+  font-size: 11px;
 }
 .egg .not_available {
   position: absolute;

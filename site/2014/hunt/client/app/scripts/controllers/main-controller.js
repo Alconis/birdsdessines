@@ -78,6 +78,7 @@ angular.module('huntApp')
 				var scoreFiltersKeys = [];
 				var maxScore = 0;
 				var nbPlayers = 0;
+				var eggStats = {};
 				angular.forEach(data, function(value, key) {
 					if(undefined == scoreFilters[value.score]) {
 						scoreFilters[value.score] = {
@@ -88,6 +89,13 @@ angular.module('huntApp')
 					}
 					scoreFilters[value.score].count = scoreFilters[value.score].count + 1;
 					nbPlayers++;
+
+					angular.forEach(value.eggs, function(value, idx) {
+						if(undefined == eggStats[value.id]) {
+							eggStats[value.id] = 0;
+						}
+						eggStats[value.id] = eggStats[value.id] + 1;
+					});
 				});
 				scoreFiltersKeys.sort(function(a,b){return a-b});
 				scoreFiltersKeys.reverse();
@@ -105,6 +113,7 @@ angular.module('huntApp')
 				$scope.filterScore = maxScore;
 				$scope.nbPlayers = nbPlayers;
 				$scope.players = data;
+				$scope.eggStats = eggStats;
 				$scope.initialized = true;
 			});
 		};
