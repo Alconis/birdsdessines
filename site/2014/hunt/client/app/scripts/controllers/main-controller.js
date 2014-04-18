@@ -14,6 +14,16 @@ angular.module('huntApp')
 			$scope.theForm = f;
 		};
 
+		$scope.filterPlayerFunc = function(item) {
+			var matchName = true;
+			if($scope.filterPlayer && $scope.filterPlayer == '') {
+				matchName = (item.name.indexOf($scope.filterPlayer) != -1);
+			}
+			var matchScore = (item.score == $scope.filterScore);
+
+			return matchScore && matchName;
+		};
+
 		$scope.doSubscribe = function(login, password, password2) {
 			$scope.formError = null;
 

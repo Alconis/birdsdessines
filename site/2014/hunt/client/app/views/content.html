@@ -19,7 +19,7 @@
 			</li>
 		</ul>
 		<div class="player"
-				ng-repeat="player in players | filter:{name:filterPlayer,score:filterScore} track by player.id"
+				ng-repeat="player in players | filter:filterPlayerFunc track by player.id"
 				ng-init="rank = scoreFilters[filterScore].startRank + $index + 1"
 				ng-class="{highlighted: currentUser.id == player.id}">
 			<div class="eggs">
