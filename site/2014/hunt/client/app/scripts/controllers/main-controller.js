@@ -4,6 +4,10 @@ angular.module('huntApp')
 	.controller('MainCtrl', function ($scope, Hunt) {
 		$scope.initialized = false;
 
+		$scope.setFilterPlayer = function(f) {
+			$scope.filterPlayer = f;
+		};
+
 		$scope.setFilterScore = function(f) {
 			$scope.filterScore = f;
 		};
@@ -16,7 +20,7 @@ angular.module('huntApp')
 
 		$scope.filterPlayerFunc = function(item) {
 			var matchName = true;
-			if($scope.filterPlayer && $scope.filterPlayer == '') {
+			if($scope.filterPlayer && $scope.filterPlayer != '') {
 				matchName = (item.name.indexOf($scope.filterPlayer) != -1);
 			}
 			var matchScore = (item.score == $scope.filterScore);

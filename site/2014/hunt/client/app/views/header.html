@@ -74,8 +74,27 @@
 
 	</div>
 
-	<div class="alert alert-success">
-		<strong>Sixi&egrave;me jour !</strong> La chasse aux oeufs est ouverte jusqu'au Lundi de P&acirc;ques. Plus de 400 chasseurs ! Quel succ&egrave;s ! Et ce n'est pas fini. Faites passez le mot. Et voici en cadeau un oeuf &eacute;ph&eacute;m&egrave;re, le <a href="http://www.birdsdessines.fr/hunt/#/collect/16/nbaprety5q">Shadoeuf</a>, pour r&eacute;compenser ceux qui chassent et lisent ce petit mot tous les jours. Et oui, demain, il ne sera plus l&agrave; !
+	<div class="alert alert-success" ng-init="currentDayMsg = 7">
+		<p ng-show="currentDayMsg == 7"><strong>Septi&egrave;me jour !</strong> Voil&agrave; une semaine que la Chasse aux Oeufs BirdsDessines.fr 2014 est ouverte et les 20 oeufs ont tous &eacute;t&eacute; cach&eacute;s par les Birds. Ils le resteront jusqu'au Lundi de P&acirc;ques inclus. Bonne chance &agrave; tous !</p>
+
+		<p ng-show="currentDayMsg == 6"><strong>Sixi&egrave;me jour !</strong> La chasse aux oeufs est ouverte jusqu'au Lundi de P&acirc;ques. Plus de 400 chasseurs ! Quel succ&egrave;s ! Et ce n'est pas fini. Faites passez le mot. Et voici en cadeau un oeuf &eacute;ph&eacute;m&egrave;re, le <a href="http://www.birdsdessines.fr/hunt/#/collect/16/nbaprety5q">Shadoeuf</a>, pour r&eacute;compenser ceux qui chassent et lisent ce petit mot tous les jours. Et oui, demain, il ne sera plus l&agrave; !</p>
+
+		<p ng-show="currentDayMsg == 5"><strong>Cinqui&egrave;me jour !</strong> 15 oeufs sur 20 sont trouvables. Je rappelle que l'on peut entrer dans la course n'importe quand ! Alors n'h&eacute;sitez pas et rejoignez les chasseurs !</p>
+
+		<p ng-show="currentDayMsg == 4"><strong>Quatri&egrave;me jour !</strong> Vous m'impressionnez ! Vous devez avoir un esprit aussi tordu que le mien pour penser &agrave; aller chercher ces oeufs n'importe o&ugrave;. Mi-parcours pass&eacute;. Continuez ainsi et faites passer le mot. (Pensez &agrave; raffraichir les pages et/ou vider le cache de votre navigateur.)</p>
+
+		<p ng-show="currentDayMsg == 3"><strong>Troisi&egrave;me jour !</strong> Plus de 300 chasseurs ! Je rappelle qu'on peut rejoindre la chasse n'importe quand puisque tous les oeufs restent trouvables jusqu'&agrave; P&acirc;ques. D'ailleurs, 3 de plus aujourd'hui. Allez hop !</p>
+
+		<p ng-show="currentDayMsg == 2"><strong>Deuxi&egrave;me jour !</strong> Angry Oeuf vous donne du fil &agrave; retordre. Bravo &agrave; ceux qui l'ont trouv&eacute;. En voici deux autres pour vous occuper.</p>
+
+		<p ng-show="currentDayMsg == 1"><strong>C'est parti !</strong> La Chasse aux Oeufs a d&eacute;marr&eacute; ! Trois oeufs ont d'ores et d&eacute;j&agrave; &eacute;t&eacute; cach&eacute;s par les Birds !</p>
+
+		<p ng-show="currentDayMsg == 0"><strong>Patience !</strong> La Chasse aux Oeufs d&eacute;marre le 14 avril 2014. Aucun oeuf n'a &eacute;t&eacute; cach&eacute; pour le moment.</p>
+
+		<p class="text-right small">
+			<a href="" ng-show="currentDayMsg > 0" ng-click="currentDayMsg = currentDayMsg - 1">Voir le message du jour pr&eacute;c&eacute;dent</a> | 
+			<a href="" ng-show="currentDayMsg < 7" ng-click="currentDayMsg = currentDayMsg + 1">Voir le message du jour suivant</a>
+		</p>
 	</div>
 
 </div>
