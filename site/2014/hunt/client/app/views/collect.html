@@ -2,97 +2,19 @@
 
 	<div class="col-md-4">
 
-		<div ng-if="initialized && theEgg">
-			<div class="foundEgg egg-big-{{theEgg.id}}">
-				<h2 ng-bind-html="theEgg.name"></h2>
-			</div>
-		</div>
-
-		<div ng-if="initialized && !theEgg" class="text-center">
-			<img src="http://birdsdessines.fr/wp-content/plugins/editeur-bd/editor2/assets/new_birds/Birds_pissed.png">
+		<div class="text-center">
+			<img src="http://birdsdessines.fr/wp-content/plugins/editeur-bd/editor2/assets/new_birds/Birds_excusing-right.png">
 		</div>
 
 	</div>
 
 	<div class="col-md-6">
 
-		<div ng-if="initialized && theEgg">
+		<h1>La Chasse aux Oeufs est termin&eacute;e !</h1>
+		<p>D&eacute;sol&eacute; mais la Chasse aux Oeufs BirdsDessines 2014 est &agrave; pr&eacute;sent close. Vous avez &eacute;t&eacute; tr&egrave;s nombreux &agrave; participer. Un grand merci &agrave; vous tous !</p>
+		<p>Les gagnants doivent se connecter &agrave; leur compte et suivre les instructions pour recevoir le fameux mug.</p>
+		<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Retourner sur le site de la chasse aux oeufs</a>
 
-			<div ng-if="currentUser && collected">
-				<h1>Vous avez trouv&eacute; un oeuf !</h1>
-				<p>Bravo, <strong>{{currentUser.login}}</strong> ! Vous venez d'ajouter l'oeuf <strong>{{theEgg.name}}</strong> &agrave; votre panier ! Il y a 20 oeufs au total &agrave; trouver sur BirdsDessines.fr. Continuez &agrave; les amasser et vous gagnerez peut-&ecirc;tre le superbe mug mis en jeu.</p>
-				<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
-			</div>
-
-			<div ng-if="currentUser && alreadyCollected">
-				<h1>Seriez-vous la cloche de P&acirc;ques ?</h1>
-				<p>Désolé <strong>{{currentUser.login}}</strong>, mais vous poss&eacute;dez d&eacute;j&agrave; l'oeuf {{theEgg.name}} dans votre panier. Continuez &agrave; chercher !</p>
-				<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
-			</div>
-
-			<div ng-if="!currentUser">
-				<h1>Vous avez trouv&eacute; un oeuf !</h1>
-				<p>Bravo ! Vous venez de trouver un oeuf de la Chasse aux Oeufs 2014 !</p>
-				<p>Les Birds en ont cach&eacute; 20 en tout sur le site <a href="http://www.birdsdessines.fr">BirdsDessines.fr</a>. Retrouvez-les tous et vous gagnerez peut-&ecirc;tre le superbe mug BirdsDessines.</p>
-				<p>Pour ajouter cet oeuf &agrave; votre panier, cliquez sur "Je m'inscris" s'il s'agit l&agrave; de votre premier oeuf. Sinon cliquez sur "Je me connecte" pour l'ajouter &agrave; votre panier existant.</p>
-
-				<p>
-					<form role="form" ng-if="theForm == 'sub'" ng-submit="doSubscribe(login, password, password2)">
-						<h4>Je m'inscris gratuitement &agrave; la Chasse aux Oeufs BirdsDessines 2014 !</h4>
-						<div class="form-group">
-							<label class="sr-only" for="loginInput">Identifiant</label>
-							<input type="text" class="form-control" id="loginInput" placeholder="Identifiant" ng-model="login">
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="passwordInput">Mot de passe</label>
-							<input type="password" class="form-control" id="passwordInput" placeholder="Mot de passe" ng-model="password">
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="passwordInput2">Confirmer mot de passe</label>
-							<input type="password" class="form-control" id="passwordInput2" placeholder="Confirmer mot de passe" ng-model="password2">
-						</div>
-						<p ng-show="formError" class="text-danger">{{formError}}</p>
-						<button type="submit" class="btn btn-primary">Je rejoins la chasse !</button>
-						<button type="button" class="btn btn-default" ng-click="setForm(null)">Annuler</button>
-					</form>
-
-					<form role="form" ng-if="theForm == 'log'" ng-submit="doLogin(login, password)">
-						<h4>Je me connecte &agrave; la Chasse aux Oeufs BirdsDessines 2014 !</h4>
-						<div class="form-group">
-							<label class="sr-only" for="loginInput">Identifiant</label>
-							<input type="text" class="form-control" id="loginInput" placeholder="Identifiant" ng-model="login">
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="passwordInput">Mot de passe</label>
-							<input type="password" class="form-control" id="passwordInput" placeholder="Mot de passe" ng-model="password">
-						</div>
-						<p ng-show="formError" class="text-danger">{{formError}}</p>
-						<button type="submit" class="btn btn-primary">Je me connecte !</button>
-						<button type="button" class="btn btn-default" ng-click="setForm(null)">Annuler</button>
-					</form>
-				<p>
-
-				<p>
-					<a ng-hide="theForm" class="btn btn-primary btn-lg" role="button" ng-click="setForm('sub')">Je m'inscris</a>
-					<a ng-hide="theForm" class="btn btn-default btn-lg" role="button" ng-click="setForm('log')">Je me connecte</a>
-				</p>
-
-			</div>
-
-		</div>
-
-		<div ng-if="initialized && !theEgg">
-			<h1>Quelque chose ne va pas !</h1>
-			<p>Malheureusement, vous avez d&ucirc; vous tromper quelque part.</p>
-			<p ng-if="hack">A l'avenir, &eacute;vitez de trafiquer l'URL. Je vous ai &agrave; l'oeil...</p>
-			<a href="http://www.birdsdessines.fr/hunt" class="btn btn-lg btn-primary btn-block" role="button">Continuer la chasse aux oeufs</a>
-		</div>
-
-		<div ng-if="!initialized">
-			<h1>Patience...</h1>
-			<p>Nous contactons la grande cloche afin de valider votre nouvel oeuf.</p>
-		</div>
 	</div>
-</div>
 
-<div ng-include src="'views/footer.html'"></div>
+</div>

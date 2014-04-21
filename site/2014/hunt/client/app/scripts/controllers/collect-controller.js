@@ -69,7 +69,7 @@ angular.module('huntApp')
 				});
 		}
 
-		Hunt.getEggs()
+		/*Hunt.getEggs()
 			.then(function(data) {
 				angular.forEach(data, function(value) {
 					if(value.id == $scope.eggId){
@@ -95,5 +95,5 @@ angular.module('huntApp')
 				}
 			}, function(reason) {
 				$scope.initialized = true;
-			});
+			});*/
 	});

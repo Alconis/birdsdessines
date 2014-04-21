@@ -27,6 +27,11 @@ switch ($action) {
 		break;
 
 	case 'add':
+		// Closed service;
+		$status = 404;
+		$result = "Service closed";
+		break;
+
 		// Conditions
 		if(!$user) {
 			$status = 404;
@@ -168,6 +173,10 @@ switch ($action) {
 		break;
 
 	case 'collect':
+		// Closed service;
+		$status = 404;
+		$result = "Service closed";
+		break;
 
 		// Conditions
 		if(!$user) {

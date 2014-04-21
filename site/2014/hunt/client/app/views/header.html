@@ -9,7 +9,7 @@
 		</div>
 
 		<div id="message" class="col-md-7">
-			Les Birds ont cach&eacute; 20 oeufs sur le site <a href="http://www.birdsdessines.fr">BirdsDessines.fr</a>. D&egrave;s que vous en voyez un, cliquez dessus pour l'ajouter &agrave; votre panier. Trouvez-en un maximum pour tenter de gagner un magnifique <a href="/hunt/#/info">mug</a> !
+			Pour P&acirc;ques 2014, Les Birds avaient cach&eacute; 20 oeufs sur le site <a href="http://www.birdsdessines.fr">BirdsDessines.fr</a>. Une semaine incroyable qui a mobilis&eacute; plus de 500 joueurs pour gagner un magnifique <a href="/hunt/#/info">mug</a> !
 		</div>
 
 		<div id="login" ng-if="!currentUser" class="col-md-4">
@@ -50,7 +50,6 @@
 			</p>
 
 			<p>
-				<a ng-hide="theForm" class="btn btn-primary btn-lg" role="button" ng-click="setForm('sub')">Je m'inscris</a>
 				<a ng-hide="theForm" class="btn btn-default btn-lg" role="button" ng-click="setForm('log')">Je me connecte</a>
 			</p>
 		</div>
@@ -74,10 +73,12 @@
 
 	</div>
 
-	<div class="alert alert-success" ng-init="currentDayMsg = 7">
+	<div class="alert alert-success" ng-init="currentDayMsg = 8">
+		<p ng-show="currentDayMsg == 8"><strong>La chasse est close ! </strong> Un tr&egrave;s grand bravo &agrave; tous les participants de la Chasse aux Oeufs BirdsDessines 2014 ! Mes efforts pour vous g&acirc;cher votre semaine et votre weekend de P&acirc;ques n'auront pas &eacute;t&eacute; vains. Je proc&eacute;derai au tirage au sort dans la semaine et annoncerai les vainqueurs ce weekend. Ces derniers devront se connecter une derni&egrave;re fois pour r&eacute;clamer leur fameux mug. Je finirai en saluant l'incroyable entraide qu'il y a eu lors de cette semaine qui d&eacute;montre que la petite communaut&eacute; des Birds est belle est soud&eacute;e. J'esp&egrave;re donc que cette Chasse qui &eacute;tait une facon de vous remercier, vous aura bien fait marrer. Parce que sur BirdsDessines.fr, c'est ca le plus important ! - Alconis</p>
+
 		<p ng-show="currentDayMsg == 7"><strong>Septi&egrave;me jour !</strong> Voil&agrave; une semaine que la Chasse aux Oeufs BirdsDessines.fr 2014 est ouverte et les 20 oeufs ont tous &eacute;t&eacute; cach&eacute;s par les Birds. Ils le resteront jusqu'au Lundi de P&acirc;ques inclus. Bonne chance &agrave; tous !</p>
 
-		<p ng-show="currentDayMsg == 6"><strong>Sixi&egrave;me jour !</strong> La chasse aux oeufs est ouverte jusqu'au Lundi de P&acirc;ques. Plus de 400 chasseurs ! Quel succ&egrave;s ! Et ce n'est pas fini. Faites passez le mot. Et voici en cadeau un oeuf &eacute;ph&eacute;m&egrave;re, le <a href="http://www.birdsdessines.fr/hunt/#/collect/16/nbaprety5q">Shadoeuf</a>, pour r&eacute;compenser ceux qui chassent et lisent ce petit mot tous les jours. Et oui, demain, il ne sera plus l&agrave; !</p>
+		<p ng-show="currentDayMsg == 6"><strong>Sixi&egrave;me jour !</strong> La chasse aux oeufs est ouverte jusqu'au Lundi de P&acirc;ques. Plus de 400 chasseurs ! Quel succ&egrave;s ! Et ce n'est pas fini. Faites passez le mot. Et voici en cadeau un oeuf &eacute;ph&eacute;m&egrave;re, le Shadoeuf, pour r&eacute;compenser ceux qui chassent et lisent ce petit mot tous les jours. Et oui, demain, il ne sera plus l&agrave; !</p>
 
 		<p ng-show="currentDayMsg == 5"><strong>Cinqui&egrave;me jour !</strong> 15 oeufs sur 20 sont trouvables. Je rappelle que l'on peut entrer dans la course n'importe quand ! Alors n'h&eacute;sitez pas et rejoignez les chasseurs !</p>
 
@@ -93,7 +94,7 @@
 
 		<p class="text-right small">
 			<a href="" ng-show="currentDayMsg > 0" ng-click="currentDayMsg = currentDayMsg - 1">Voir le message du jour pr&eacute;c&eacute;dent</a> | 
-			<a href="" ng-show="currentDayMsg < 7" ng-click="currentDayMsg = currentDayMsg + 1">Voir le message du jour suivant</a>
+			<a href="" ng-show="currentDayMsg < 8" ng-click="currentDayMsg = currentDayMsg + 1">Voir le message du jour suivant</a>
 		</p>
 	</div>
 

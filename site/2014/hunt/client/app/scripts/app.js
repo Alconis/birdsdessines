@@ -19,6 +19,9 @@ angular.module('huntApp', [
       .when('/info', {
         templateUrl: 'views/info.html'
       })
+      .when('/solutions', {
+        templateUrl: 'views/solution.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
