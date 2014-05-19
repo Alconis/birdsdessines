@@ -1,0 +1,115 @@
+/*
+ * PAGE DE MODERATION
+ */
+
+#mod {
+	/*font-size: 10px;*/
+}
+
+#mod .message {
+	padding: 4px 8px;
+	background-color: #B3EDFC;
+	color: #0A3845;
+	border: 1px solid #0A3845;
+	margin-bottom: 20px;
+}
+
+#mod #titles a {
+	font-size: 12px;
+	color: #898989;
+	text-decoration: none;
+	padding: 5px 10px;
+}
+#mod #titles a:hover {
+	color: #454545;
+}
+#mod #titles a.selected {
+	color: black;
+	background-color: #EDEDED;
+	border: 1px solid #898989;
+}
+
+#mod #list div.mod_title {
+	display: inline-block;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	width: 300px;
+	font-weight: bold;
+}
+#mod #list div.mod_author {
+	display: inline-block;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	width: 100px;
+}
+#mod #list div.mod_time {
+	display: inline-block;
+	width: 100px;
+	color: #898989;
+}
+#mod #list div.mod_comm {
+	display: inline-block;
+	width: 20px;
+	padding-left: 14px;
+	background: url('/wp-content/themes/twentyfourteen-birds/images/ico-comments.gif') no-repeat 0 50%;
+}
+#mod #list div.mod_vote {
+	display: inline-block;
+	width: 20px;
+	padding-left: 18px;
+	background: url('/wp-content/plugins/wp-postratings/images/heart/rating_1_on.gif') no-repeat 0 50%;
+}
+#mod #list div.mod_modo, .post .mod_modo {
+	display: inline-block;
+	width: 20px;
+	padding-left: 18px;
+	background: url('/wp-content/themes/twentyfourteen-birds/images/error.png') no-repeat 0 50%;
+}
+#mod #list div.mod_hidden {
+	display: inline-block;
+	vertical-align: middle;
+}
+#mod #list div#details {
+	display: block;
+	white-space:nowrap;
+	border-bottom: 1px solid #898989;
+}
+#mod #list div#details #bd {
+	display: inline-block;
+	width: 480px;
+}
+#mod #list div#details #comments {
+	display: inline-block;
+	padding-top: 0px;
+	vertical-align: top;
+	max-height: 300px;
+	max-width: 450px;
+	overflow: auto;
+}
+#mod #list div#details #comments .comment {
+	display: block;
+	white-space:normal;
+	margin-bottom: 5px;
+}
+#mod .action {
+	display: inline-block;
+	float: left;
+	margin: 0px 10px 10px 0px;
+	padding: 4px;
+	color: #454545;
+	background-color: #EDEDED;
+	border: 1px solid #898989;
+}
+#mod .action.warning {
+	background-color: #FFA6A6;
+	color: #9E1010;
+	border-color: #9E1010;
+}
+#mod .action:hover {
+	color: black;
+}
+#mod #comments .avatar {
+	float:right;
+}

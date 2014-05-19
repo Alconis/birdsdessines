@@ -1,0 +1,58 @@
+/*
+ Theme Name:   Twenty Fourteen Birds
+ Theme URI:    http://www.birdsdessines.fr
+ Description:  Theme officiel de BirdsDessines.fr
+ Author:       Nicolas Demange
+ Author URI:   http://www.birdsdessines.fr
+ Template:     twentyfourteen
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fourteen-child
+*/
+
+@import url("../twentyfourteen/style.css");
+@import url("moderation.css");
+
+/* Theme customization starts here
+-------------------------------------------------------------- */
+
+.site-content .entry-header,
+.site-content .entry-content,
+.site-content .entry-summary,
+.site-content .entry-meta,
+.page-content {
+	/*max-width: 474px;*/
+	max-width: 900px;
+}
+
+.comments-area {
+	/*max-width: 474px;*/
+	max-width: 900px;
+}
+
+.post-navigation,
+.image-navigation {
+	/*max-width: 474px;*/
+	max-width: 900px;
+}
+
+.archive-header,
+.page-header {
+	/*max-width: 474px;*/
+	max-width: 900px;
+}
+
+img.bd {
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+
+.hiddenMsg {
+	display: block;
+	margin: 10px;
+	padding: 20px 20px 20px 80px;
+	background: url(images/birds_hidden.png) 20px 50% no-repeat, #CACACA;
+	color: #4F4F4F;
+	border: 1px solid #4F4F4F;
+	text-decoration: none !important;
+}
