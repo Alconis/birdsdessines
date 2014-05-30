@@ -144,8 +144,7 @@ package components
 		private function onDragOver( event : DragEvent ) : void {
 			var sourceType : String = event.dragSource.dataForFormat("type") as String;
 			
-			if ((_type == BIRD && (sourceType == BIRD || sourceType == NEW_BIRDS || sourceType == NEW_CHOUETTE || sourceType == BONUS))
-			 || (_type == BUBBLE && sourceType == BUBBLE)){
+			if ((_type == BIRD && sourceType != BUBBLE) || (_type == BUBBLE && sourceType == BUBBLE)){
 				DragManager.showFeedback(DragManager.MOVE);
 			}else{
 				DragManager.showFeedback(DragManager.NONE);
@@ -159,17 +158,15 @@ package components
 			
 	        image = sourceImage;
 			
-			if (Dropper.BIRD == sourceType){
-				correctBirdPosition(sourceId);
-			}else if (Dropper.NEW_BIRDS == sourceType){
+			if (Dropper.NEW_BIRDS == sourceType){
 				correctNewBirdsPosition(sourceId);
-			}else if (Dropper.BONUS == sourceType){
-				correctBonusPosition(sourceId);
 			}else if (Dropper.NEW_CHOUETTE == sourceType){
 				correctNewChouettePosition(sourceId);
 			}else if (Dropper.BUBBLE == sourceType){
 	        	addBubbleTextEditors(sourceId);
-   			}
+   			}else{
+				correctCustomPosition(sourceId);
+			}
 		}
 		
 		public function hasImage() : Boolean {
@@ -190,48 +187,6 @@ package components
 			_helpLabel.x = 0;
 			_helpLabel.y = height/2 - 8;
 		}
-		
-		private function correctBirdPosition( birdTitle : String ) : void {
-			switch (birdTitle){
-				case "flap" : {
-					_img.x += -7;
-					_img.y += -12;
-					break;
-				}
-				case "laughing-turning-left" : {
-					_img.y += 10;
-					break;
-				}
-				case "laughing-turning-right" : {
-					_img.y += 10;
-					break;
-				}
-				case "amused-looking-left" : {
-					_img.y += 3;
-					break;
-				}
-				case "amused-looking-right" : {
-					_img.y += 3;
-					break;
-				}
-				case "crazy-right" : {
-					_img.y -= 10;
-					break;
-				}
-				case "crazy-left" : {
-					_img.y -= 10;
-					break;
-				}
-				case "whispering-right" : {
-					_img.y += 12;
-					break;
-				}
-				case "whispering-left" : {
-					_img.y += 12;
-					break;
-				}
-			}
-		}
 				
 		private function correctNewBirdsPosition( birdTitle : String ) : void {
 			
@@ -239,31 +194,31 @@ package components
 			_img.y += -27;
 
 			switch (birdTitle){
-				case "Birds_whispering-left" : {
+				case "assets/new_birds/Birds_whispering-left.png" : {
 					_img.y += 10;
 					break;
 				}
-				case "Birds_whispering-right" : {
+				case "assets/new_birds/Birds_whispering-right.png" : {
 					_img.y += 10;
 					break;
 				}
-				case "Birds_laughing-turning-left" : {
+				case "assets/new_birds/Birds_laughing-turning-left.png" : {
 					_img.y += 7;
 					break;
 				}
-				case "Birds_laughing-turning-right" : {
+				case "assets/new_birds/Birds_laughing-turning-right.png" : {
 					_img.y += 7;
 					break;
 				}
-				case "Birds_laughing-turning-right" : {
+				case "assets/new_birds/Birds_laughing-turning-right.png" : {
 					_img.y += 7;
 					break;
 				}
-				case "Birds_flap-left" : {
+				case "assets/new_birds/Birds_flap-left.png" : {
 					_img.x += 8;
 					break;
 				}
-				case "Birds_flap-right" : {
+				case "assets/new_birds/Birds_flap-right.png" : {
 					_img.x += 8;
 					break;
 				}
@@ -275,9 +230,17 @@ package components
 			_img.y += -27;
 		}
 		
-		private function correctBonusPosition( birdTitle : String ) : void {
+		private function correctCustomPosition( birdTitle : String ) : void {
 			_img.x += -10;
 			_img.y += -27;
+			
+			switch (birdTitle){
+				case "assets/foot/Arbitre_CartonRouge.png" : 
+				case "assets/foot/Arbitre_CartonJaune.png" : {
+					_img.x += 10;
+					break;
+				}
+			}
 		}
 		
 		private function onBubbleTextAreaClick( event : MouseEvent ) : void {
@@ -303,7 +266,7 @@ package components
 			editor2.addEventListener(MouseEvent.CLICK, onBubbleTextAreaClick);
 			
 			switch (bubbleTitle){
-				case "bubble-big-left" : {
+				case "assets/bubbles/bubble-big-left.png" : {
 					editor1.x = 20;
 					editor1.y = 10;
 					editor1.width = 205;
@@ -312,7 +275,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "bubble-big-right" : {
+				case "assets/bubbles/bubble-big-right.png" : {
 					editor1.x = 20;
 					editor1.y = 10;
 					editor1.width = 205;
@@ -321,7 +284,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "bubble-no-speak" : {
+				case "assets/bubbles/bubble-no-speak.png" : {
 					editor1.x = 25;
 					editor1.y = 15;
 					editor1.width = 200;
@@ -330,7 +293,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "bubble-single-left" : {
+				case "assets/bubbles/bubble-single-left.png" : {
 					editor1.x = 20;
 					editor1.y = 30;
 					editor1.width = 205;
@@ -339,7 +302,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "bubble-single-right" : {
+				case "assets/bubbles/bubble-single-right.png" : {
 					editor1.x = 20;
 					editor1.y = 30;
 					editor1.width = 205;
@@ -348,7 +311,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "bubble-double-left-right" : {
+				case "assets/bubbles/bubble-double-left-right.png" : {
 					editor1.x = 5;
 					editor1.y = 5;
 					editor1.width = 205;
@@ -363,7 +326,7 @@ package components
 					addChild(editor2);
 					break;
 				}
-				case "bubble-double-right-left" : {
+				case "assets/bubbles/bubble-double-right-left.png" : {
 					editor1.x = 35;
 					editor1.y = 5;
 					editor1.width = 205;
@@ -378,7 +341,7 @@ package components
 					addChild(editor2);
 					break;
 				}
-				case "thought-bubble-right" : {
+				case "assets/bubbles/thought-bubble-right.png" : {
 					editor1.x = 25;
 					editor1.y = 30;
 					editor1.width = 205;
@@ -387,7 +350,7 @@ package components
 					addChild(editor1);
 					break;
 				}
-				case "thought-bubble-left" : {
+				case "assets/bubbles/thought-bubble-left.png" : {
 					editor1.x = 25;
 					editor1.y = 30;
 					editor1.width = 205;

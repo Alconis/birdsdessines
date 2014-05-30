@@ -21,149 +21,130 @@
 				var file: Object;
 				var diapo : Diapo;
 								
-				var bubbleFilesNames : Array = [
-					/*{p:"bubble-heart"},
-					{p:"bubble-hearts"},*/
-					{p:"thought-bubble-left"},
-					{p:"thought-bubble-right"},
-					{p:"bubble-big-left"},
-					{p:"bubble-big-right"},
-					{p:"bubble-double-right-left"},
-					{p:"bubble-double-left-right"},
-					{p:"bubble-single-right"},
-					{p:"bubble-single-left"},
-					{p:"bubble-no-speak"}
+				var fileNames : Array = [
+					{p:"assets/bubbles/thought-bubble-left.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/thought-bubble-right.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-big-left.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-big-right.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-double-right-left.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-double-left-right.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-single-right.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-single-left.png", t:Dropper.BUBBLE},
+					{p:"assets/bubbles/bubble-no-speak.png", t:Dropper.BUBBLE},
+					
+					{p:"assets/new_birds/Birds-mdr_left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds-mdr_right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid-looking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid-looking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid-speaking-looking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid-speaking-looking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid-speaking.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Afraid.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Amused-looking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_Amused-looking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_bending-speaking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_bending-speaking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_blind-turning-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_blind-turning-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_chante-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_chante-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_crazy.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_excusing-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_excusing-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_flap-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_flap-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_go-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_go-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_hautain-speaking.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_hautain.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_laughing-turning-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_laughing-turning-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-down-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-down-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-down.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-sky-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_looking-sky-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_normal.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_pissed-speaking.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_pissed.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_speaking-looking-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_speaking-looking-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_speaking.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_turning-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_turning-right.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_whispering-left.png", t:Dropper.NEW_BIRDS},
+					
+					{p:"assets/newspaper/Birds_newspaper.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-afraid.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-normal.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-normal-left.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-normal-right.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-speaking-looking-left.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-speaking-looking-right.png", t:"newspaper"},
+					{p:"assets/newspaper/Birds_newspaper-pissed.png", t:"newspaper"},
+					
+					{p:"assets/foot/Arbitre_CartonJaune.png", t:"bonus_foot"},
+					{p:"assets/foot/Arbitre_CartonJaune-02.png", t:"bonus_foot"},
+					{p:"assets/foot/Arbitre_CartonRouge.png", t:"bonus_foot"},
+					{p:"assets/foot/Arbitre_CartonRouge-02.png", t:"bonus_foot"},
+					{p:"assets/foot/allemagne/Joueur_normal.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_looking.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_looking-02.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_speaking.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_looking-speaking.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_looking-speaking-02.png", t:"bonus_foot_de"},
+					{p:"assets/foot/allemagne/Joueur_choc.png", t:"bonus_foot_de"},
+					{p:"assets/foot/angleterre/Joueur_normal.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_looking.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_looking-02.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_speaking.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_looking-speaking.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_looking-speaking-02.png", t:"bonus_foot_en"},
+					{p:"assets/foot/angleterre/Joueur_choc.png", t:"bonus_foot_en"},
+					{p:"assets/foot/bresil/Joueur_normal.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_looking.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_looking-02.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_speaking.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_looking-speaking.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_looking-speaking-02.png", t:"bonus_foot_br"},
+					{p:"assets/foot/bresil/Joueur_choc.png", t:"bonus_foot_br"},
+					{p:"assets/foot/espagne/Joueur_normal.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_looking.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_looking-02.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_speaking.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_looking-speaking.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_looking-speaking-02.png", t:"bonus_foot_es"},
+					{p:"assets/foot/espagne/Joueur_choc.png", t:"bonus_foot_es"},
+					{p:"assets/foot/france/Joueur_normal.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_looking.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_looking-02.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_speaking.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_looking-speaking.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_looking-speaking-02.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/france/Joueur_choc.png", t:"bonus_foot_fr"},
+					{p:"assets/foot/italie/Joueur_normal.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_looking.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_looking-02.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_speaking.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_looking-speaking.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_looking-speaking-02.png", t:"bonus_foot_it"},
+					{p:"assets/foot/italie/Joueur_choc.png", t:"bonus_foot_it"},
+					{p:"assets/foot/portugal/Joueur_normal.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_looking.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_looking-02.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_speaking.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_looking-speaking.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_looking-speaking-02.png", t:"bonus_foot_pt"},
+					{p:"assets/foot/portugal/Joueur_choc.png", t:"bonus_foot_pt"},
+					
 				];
 				
-				for each(file in bubbleFilesNames){
-					diapo = new Diapo(Dropper.BUBBLE, file.p, file.t,file.i,file.n);
+				for each(file in fileNames){
+					diapo = new Diapo(file.t, file.p);
 					library.addDiapo(diapo);
 				}
-				
-				var newBirdsFilesNames : Array = [
-					{p:"Birds-mdr_left"},
-					{p:"Birds-mdr_right"},
-					{p:"Birds_Afraid-looking-left"},
-					{p:"Birds_Afraid-looking-right"},
-					{p:"Birds_Afraid-speaking-looking-left"},
-					{p:"Birds_Afraid-speaking-looking-right"},
-					{p:"Birds_Afraid-speaking"},
-					{p:"Birds_Afraid"},
-					{p:"Birds_Amused-looking-left"},
-					{p:"Birds_Amused-looking-right"},
-					{p:"Birds_bending-speaking-left"},
-					{p:"Birds_bending-speaking-right"},
-					{p:"Birds_blind-turning-left"},
-					{p:"Birds_blind-turning-right"},
-					{p:"Birds_chante-left"},
-					{p:"Birds_chante-right"},
-					{p:"Birds_crazy"},
-					{p:"Birds_excusing-left"},
-					{p:"Birds_excusing-right"},
-					{p:"Birds_flap-left"},
-					{p:"Birds_flap-right"},
-					{p:"Birds_go-left"},
-					{p:"Birds_go-right"},
-					{p:"Birds_hautain-speaking"},
-					{p:"Birds_hautain"},
-					{p:"Birds_laughing-turning-left"},
-					{p:"Birds_laughing-turning-right"},
-					{p:"Birds_looking-down-left"},
-					{p:"Birds_looking-down-right"},
-					{p:"Birds_looking-down"},
-					{p:"Birds_looking-left"},
-					{p:"Birds_looking-right"},
-					{p:"Birds_looking-sky-left"},
-					{p:"Birds_looking-sky-right"},
-					{p:"Birds_normal"},
-					{p:"Birds_pissed-speaking"},
-					{p:"Birds_pissed"},
-					{p:"Birds_speaking-looking-left"},
-					{p:"Birds_speaking-looking-right"},
-					{p:"Birds_speaking"},
-					{p:"Birds_turning-left"},
-					{p:"Birds_turning-right"},
-					{p:"Birds_whispering-left"}
-				];
-				
-				for each(file in newBirdsFilesNames){
-					diapo = new Diapo(Dropper.NEW_BIRDS, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}
-				
-				/*var newChouetteFilesNames : Array = [
-					{p:"Chouette_afraid-looking-left"},
-					{p:"Chouette_afraid-looking-right"},
-					{p:"Chouette_afraid-speaking"},
-					{p:"Chouette_normal-looking-left"},
-					{p:"Chouette_normal-looking-right"},
-					{p:"Chouette_normal"},
-					{p:"Chouette_pissed-speaking"},
-					{p:"Chouette_pissed"},
-					{p:"Chouette_speaking-looking-left"},
-					{p:"Chouette_speaking-looking-right"},
-					{p:"Chouette_speaking"}
-				];
-				
-				for each(file in newChouetteFilesNames){
-					diapo = new Diapo(Dropper.NEW_CHOUETTE, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}*/
-				
-				var newspaperBirdsFilesNames : Array = [
-					{p:"Birds_newspaper"},
-					{p:"Birds_newspaper-normal"},
-					{p:"Birds_newspaper-afraid"},
-					{p:"Birds_newspaper-normal-left"},
-					{p:"Birds_newspaper-normal-right"},
-					{p:"Birds_newspaper-speaking-looking-left"},
-					{p:"Birds_newspaper-speaking-looking-right"},
-					{p:"Birds_newspaper-pissed"}
-				];
-				
-				for each(file in newspaperBirdsFilesNames){
-					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}
-				
-				/*var saintvalBirdsFilesNames : Array = [
-					{p:"Birdette_chocked"},
-					{p:"Birdette_love-left"},
-					{p:"Birdette_love-right"},
-					{p:"Birdette_normal"},
-					{p:"Birdette_normal-left"},
-					{p:"Birdette_normal-right"},
-					{p:"Birdette_smile-left"},
-					{p:"Birdette_smile-right"},
-					{p:"Birdette_speaking"},
-					{p:"Birdette_speaking-left"},
-					{p:"Birdette_speaking-right"},
-					{p:"Birds_love"},
-					{p:"Birds_love-left"},
-					{p:"Birds_love-right"}
-				];
-				
-				for each(file in saintvalBirdsFilesNames){
-					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}*/
-				
-				/*var electionBirdsFilesNames : Array = [
-					{p:"Birds_election_normal"},
-					{p:"Birds_election_vnr"},
-					{p:"Birds_election_choc"},
-					{p:"Birds_election_speaking"},
-					{p:"Birds_election_speaking-looking-left"},
-					{p:"Birds_election_speaking-looking-right"},
-					{p:"Birds_election_looking-left"},
-					{p:"Birds_election_looking-right"}
-				];
-				
-				for each(file in electionBirdsFilesNames){
-					diapo = new Diapo(Dropper.BONUS, file.p, file.t,file.i,file.n);
-					library.addDiapo(diapo);
-				}*/
-				
 			}
 			
 		]]>

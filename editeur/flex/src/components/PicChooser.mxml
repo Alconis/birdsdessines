@@ -9,32 +9,34 @@
 		 paddingLeft="8">
 	<mx:Script>
 		<![CDATA[
+			import mx.core.Container;
 			
-			public const BIRDS : String = "birds";
 			public const BUBBLES : String = "bubbles";
 			public const NEW_BIRDS : String = "new_birds";
-			public const NEW_CHOUETTE : String = "new_chouette";
 			public const BONUS : String = "bonus";
 			
 			[Bindable]
 			private var _showElement : String = NEW_BIRDS;
+			
+			[Bindable]
+			private var _showSubElement : String = 'bonus_foot';
 			
 			public function addDiapo( diapo : Diapo ) : void {
 				if(diapo.type == Dropper.BUBBLE){
 					bubblesBrowser.addChild(diapo);
 				}else if(diapo.type == Dropper.NEW_BIRDS){
 					newBirdsBrowser.addChild(diapo);
-				}else if(diapo.type == Dropper.NEW_CHOUETTE){
-					newChouetteBrowser.addChild(diapo);
 				}else if(diapo.type == Dropper.BONUS){
 					bonusBrowser.addChild(diapo);
+				}else{
+					var customBrowser : Container = bonusBrowser.getChildByName(diapo.type) as Container;
+					if(null == customBrowser) {
+						customBrowser = this.getChildByName(diapo.type) as Container;
+					}
+					if(null != customBrowser) {
+						customBrowser.addChild(diapo);
+					}
 				}
-			}
-			
-			protected function egghunt_clickHandler(event:MouseEvent):void
-			{
-				var urlReq : URLRequest = new URLRequest('http://www.birdsdessines.fr/hunt/#/collect/9/54aacxwzza');
-				navigateToURL(urlReq);
 			}
 			
 		]]>
@@ -57,24 +59,119 @@
 			 includeInLayout="{_showElement == NEW_BIRDS}"
 			 
 			 />
-	<mx:HBox id="newChouetteBrowser" width="750" height="100%"
+	<mx:HBox name="newspaper" width="750" height="100%"
 			 horizontalScrollPolicy="auto"
 			 verticalAlign="top" horizontalGap="5"
 			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
 			 
-			 visible="{_showElement == NEW_CHOUETTE}"
-			 includeInLayout="{_showElement == NEW_CHOUETTE}"
+			 visible="{_showElement == 'newspaper'}"
+			 includeInLayout="{_showElement == 'newspaper'}"
 			 
 			 />
 	<mx:HBox id="bonusBrowser" width="750" height="100%"
-			 horizontalScrollPolicy="auto"
-			 verticalAlign="top" horizontalGap="5"
-			 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+			 horizontalScrollPolicy="off"
+			 verticalAlign="top" horizontalGap="0"
+			 paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0"
 			 
 			 visible="{_showElement == BONUS}"
 			 includeInLayout="{_showElement == BONUS}"
 			 
-			 />
+			 >
+		<mx:VBox width="40" height="100%" backgroundColor="#eeeeee"
+				 verticalAlign="middle" verticalGap="6" horizontalAlign="center">
+			<mx:Button icon="@Embed(source='../assets/icons/foot/foot_icon.png')"
+					   click="_showSubElement = 'bonus_foot'"
+					   toolTip="Afficher les arbitres et les supporters"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/FR.png')"
+					   click="_showSubElement = 'bonus_foot_fr'"
+					   toolTip="Afficher l'équipe de France"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/BR.png')"
+					   click="_showSubElement = 'bonus_foot_br'"
+					   toolTip="Afficher l'équipe du Brésil"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/ES.png')"
+					   click="_showSubElement = 'bonus_foot_es'"
+					   toolTip="Afficher l'équipe d'Espagne"
+					   height="30" width="30"/>
+		</mx:VBox>
+		<mx:VBox width="40" height="100%" backgroundColor="#eeeeee"
+				 verticalAlign="middle" verticalGap="6" horizontalAlign="center">
+			<mx:Button icon="@Embed(source='../assets/icons/foot/DE.png')"
+					   click="_showSubElement = 'bonus_foot_de'"
+					   toolTip="Afficher l'équipe d'Allemagne"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/PT.png')"
+					   click="_showSubElement = 'bonus_foot_pt'"
+					   toolTip="Afficher l'équipe du Portugal"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/IT.png')"
+					   click="_showSubElement = 'bonus_foot_it'"
+					   toolTip="Afficher l'équipe d'Italie"
+					   height="30" width="30"/>
+			<mx:Button icon="@Embed(source='../assets/icons/foot/EN.png')"
+					   click="_showSubElement = 'bonus_foot_en'"
+					   toolTip="Afficher l'équipe d'Angleterre"
+					   height="30" width="30"/>
+		</mx:VBox>
+		<mx:HBox name="bonus_foot" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot'}"/>
+		<mx:HBox name="bonus_foot_de" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_de'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_de'}"/>
+		<mx:HBox name="bonus_foot_en" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_en'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_en'}"/>
+		<mx:HBox name="bonus_foot_br" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_br'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_br'}"/>
+		<mx:HBox name="bonus_foot_es" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_es'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_es'}"/>
+		<mx:HBox name="bonus_foot_fr" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_fr'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_fr'}"/>
+		<mx:HBox name="bonus_foot_it" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_it'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_it'}"/>
+		<mx:HBox name="bonus_foot_pt" width="670" height="100%"
+				 horizontalScrollPolicy="auto"
+				 verticalAlign="top" horizontalGap="5"
+				 paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5"
+				 
+				 visible="{_showSubElement == 'bonus_foot_pt'}"
+				 includeInLayout="{_showSubElement == 'bonus_foot_pt'}"/>
+	</mx:HBox>
 	<mx:VBox id="toolbar" width="40" height="100%"
 			 verticalAlign="middle" verticalGap="6" horizontalAlign="center">
 		<mx:Button icon="@Embed(source='../assets/icons/new_bird_icon.png')"
@@ -82,20 +179,16 @@
 				   toolTip="Afficher les Nouveaux Birds"
 				   height="30" width="30"/>
 		<mx:Button icon="@Embed(source='../assets/icons/newspaper_icon.png')"
+				   click="_showElement = 'newspaper'"
+				   toolTip="Afficher les Birds Journal"
+				   height="30" width="30"/>
+		<mx:Button icon="@Embed(source='../assets/icons/foot/foot_icon.png')"
 				   click="_showElement = BONUS"
 				   toolTip="Afficher les Birds Bonus"
 				   height="30" width="30"/>
-		<!--mx:Button icon="@Embed(source='../assets/icons/chouette_icon.png')"
-				   click="_showElement = NEW_CHOUETTE"
-				   toolTip="Afficher les Chouettes"
-				   height="30" width="30"/-->
 		<mx:Button icon="@Embed(source='../assets/icons/bubble_icon2.png')"
 				   click="_showElement = BUBBLES"
 				   toolTip="Afficher les bulles"
-				   height="30" width="30"/>
-		<mx:Button icon="@Embed(source='../assets/icons/oeufcretin_icon.png')"
-				   click="egghunt_clickHandler(event)"
-				   toolTip="Chassoyons l'ovoide..."
 				   height="30" width="30"/>
 	</mx:VBox>
 </mx:HBox>
