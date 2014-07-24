@@ -75,6 +75,7 @@
 					{p:"assets/new_birds/Birds_turning-left.png", t:Dropper.NEW_BIRDS},
 					{p:"assets/new_birds/Birds_turning-right.png", t:Dropper.NEW_BIRDS},
 					{p:"assets/new_birds/Birds_whispering-left.png", t:Dropper.NEW_BIRDS},
+					{p:"assets/new_birds/Birds_whispering-right.png", t:Dropper.NEW_BIRDS},
 					
 					{p:"assets/newspaper/Birds_newspaper.png", t:"newspaper"},
 					{p:"assets/newspaper/Birds_newspaper-afraid.png", t:"newspaper"},
@@ -92,6 +93,9 @@
 					{p:"assets/foot/Supporter01_chante.png", t:"bonus_foot"},
 					{p:"assets/foot/Supporter01_chante02.png", t:"bonus_foot"},
 					{p:"assets/foot/Supporter02_choc.png", t:"bonus_foot"},
+					{p:"assets/foot/Supporter03_Allez.png", t:"bonus_foot"},
+					{p:"assets/foot/Ballon.png", t:"bonus_foot"},
+					{p:"assets/foot/Ballon-creve.png", t:"bonus_foot"},
 					{p:"assets/foot/allemagne/Joueur_normal.png", t:"bonus_foot_de"},
 					{p:"assets/foot/allemagne/Joueur_looking.png", t:"bonus_foot_de"},
 					{p:"assets/foot/allemagne/Joueur_looking-02.png", t:"bonus_foot_de"},
