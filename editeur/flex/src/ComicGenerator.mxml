@@ -94,7 +94,17 @@
 					{p:"assets/baby/BB-ecoute_right.png", t:Dropper.BONUS},
 					{p:"assets/baby/BB-boude.png", t:Dropper.BONUS},
 					{p:"assets/baby/BB-colere.png", t:Dropper.BONUS},
-					{p:"assets/baby/BB-pleure.png", t:Dropper.BONUS}
+					{p:"assets/baby/BB-pleure.png", t:Dropper.BONUS},
+					
+					{p:"assets/baby/BBboy-parle.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-parle-left.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-parle-right.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-leve-main.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-ecoute-left.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-ecoute-right.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-boude.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-colere.png", t:Dropper.BONUS},
+					{p:"assets/baby/BBboy-pleure.png", t:Dropper.BONUS}
 					
 				];
 				
